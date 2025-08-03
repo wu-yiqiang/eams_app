@@ -1,10 +1,10 @@
 import 'package:get/get.dart';
-import 'package:eams_app/views/Home/controller/home_controller.dart';
+import 'package:eams_app/views/tabs/controller/tab_controller.dart';
 
 
 class AllControllerBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<HomeController>(() => HomeController());
+    Get.lazyPut<TabsController>(() => TabsController());
   }
 }
