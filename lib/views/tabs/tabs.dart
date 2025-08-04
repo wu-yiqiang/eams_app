@@ -3,9 +3,11 @@ import 'package:get/get.dart';
 import 'package:eams_app/views/tabs/controller/tab_controller.dart';
 import 'package:eams_app/views/user/user.dart';
 import 'package:eams_app/views/home/home.dart';
-class Tabs extends StatelessWidget {
-  TabsController homeController = Get.put(TabsController());
-  final pages = [Home(), User()];
+import 'package:eams_app/views/workbench/workbench.dart';
+
+class TabsPage extends StatelessWidget {
+  final TabsController tabsController = Get.put(TabsController());
+  final pages = [HomePage(), WorkbenchPage(), UserPage()];
   final barItems = [
     BottomNavigationBarItem(
       icon: Icon(Icons.home, color: Colors.black),
@@ -29,14 +31,19 @@ class Tabs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(child: pages[homeController.currentIndex.toInt()]),
-      bottomNavigationBar: BottomNavigationBar(
-        items: barItems,
-        currentIndex: homeController.currentIndex.toInt(),
-        onTap: (index) {
-          homeController.setCurrent(index);
-        },
+      body: SafeArea(
+        child: Obx(() => pages[tabsController.currentIndex.toInt()]),
       ),
+      bottomNavigationBar: Obx(
+        () => BottomNavigationBar(
+          items: barItems,
+          currentIndex: tabsController.currentIndex.toInt(),
+          onTap: (index) {
+            print("sdsds$index");
+            tabsController.setCurrent(index);
+          },
+        ),
+      )
     );
   }
 }

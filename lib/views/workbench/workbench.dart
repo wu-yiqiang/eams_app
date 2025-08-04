@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class UserPage extends StatelessWidget {
+class WorkbenchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,7 +12,7 @@ class UserPage extends StatelessWidget {
               width: 120,
               height: 120,
               margin: EdgeInsets.only(top: 30, bottom: 30),
-              child: Text("user"),
+              child: Text("WorkbenchPage"),
             ),
           ],
         ),

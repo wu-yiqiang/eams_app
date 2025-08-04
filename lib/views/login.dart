@@ -1,8 +1,9 @@
+import 'package:eams_app/views/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:eams_app/views/tabs/tabs.dart';
 
-class Login extends StatelessWidget {
+class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,7 +98,7 @@ class Login extends StatelessWidget {
                     icon: Icon(Icons.login),
                     label: Text("登录"),
                     onPressed: () {
-                      Get.to(Home());
+                      Get.to(HomePage());
                     },
                   ),
                 ],
