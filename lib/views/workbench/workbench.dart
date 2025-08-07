@@ -5,13 +5,10 @@ class WorkbenchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<Tab> myTabs = <Tab>[
-      Tab(text: '待审批'),
-      Tab(text: '审批中'),
-      Tab(text: '已审批'),
-      Tab(text: '已完成'),
-      Tab(text: '11'),
-      Tab(text: '221'),
-      Tab(text: '781'),
+      Tab(text: '资产管理'),
+      Tab(text: '人员管理'),
+      Tab(text: '废物管理'),
+      Tab(text: '请假管理'),
     ];
     return DefaultTabController(
       length: myTabs.length,
@@ -32,9 +29,6 @@ class WorkbenchPage extends StatelessWidget {
               Center(child: Text('Tab 2')),
               Center(child: Text('Tab 3')),
               Center(child: Text('Tab 4')),
-              Center(child: Text('萨达')),
-              Center(child: Text('萨达111')),
-              Center(child: Text('萨达222')),
             ],
           ),
         ),

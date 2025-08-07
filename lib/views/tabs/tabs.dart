@@ -38,8 +38,8 @@ class TabsPage extends StatelessWidget {
         () => BottomNavigationBar(
           items: barItems,
           currentIndex: tabsController.currentIndex.toInt(),
+          selectedItemColor: Colors.blue,
           onTap: (index) {
-            print("sdsds$index");
             tabsController.setCurrent(index);
           },
         ),

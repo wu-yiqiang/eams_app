@@ -24,30 +24,41 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            Row(
-              children: [
-                Expanded(
-                  child: Container(
-                    height: 200,
-                    child: Swiper(
-                      itemBuilder: (BuildContext context, int index) {
-                        final int inde = index + 1;
-                        return Image.asset(
-                          "assets/images/background$inde.png",
-                          fit: BoxFit.fill,
-                        );
-                      },
-                      itemCount: 3,
-                      pagination: SwiperPagination(),
-                      control: SwiperControl(),
+        child: Container(
+          padding: EdgeInsets.all(10),
+          child: Column(
+            children: [
+              Text(
+                "EAMS",
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      height: 200,
+                      child: Swiper(
+                        itemBuilder: (BuildContext context, int index) {
+                          final int inde = index + 1;
+                          return ClipRRect(
+                            borderRadius: BorderRadius.circular(6),
+                            child: Image.asset(
+                              "assets/images/background$inde.png",
+                              fit: BoxFit.fill,
+                            ),
+                          );
+                        },
+                        itemCount: 3,
+                        pagination: SwiperPagination(),
+                        // control: SwiperControl(),
+                      ),
                     ),
                   ),
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+              Row(children: [Text("在线学习"), Text("个人奖励")])
+            ],
+          ),
         ),
       ),
     );
