@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:card_swiper/card_swiper.dart';
+import 'package:eams_app/views/home/self-service.dart';
 
 class HomePage extends StatelessWidget {
   List<Container> cards = [
@@ -56,7 +57,9 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
-              Row(children: [Text("在线学习"), Text("个人奖励")])
+              // Row(children: [Text("在线学习"), Text("个人奖励"), Text("个人考勤")]),
+              SelfServicePage(),
+              Row(children: [Text("其他功能111")])
             ],
           ),
         ),
