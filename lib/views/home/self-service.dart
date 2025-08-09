@@ -65,7 +65,7 @@ class SelfServicePage extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 184,
       child: Expanded(
         child: Container(
@@ -76,27 +76,23 @@ class SelfServicePage extends StatelessWidget {
           ),
           child: GridView(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 5, //横轴三个子widget
+              crossAxisCount: 4, //横轴三个子widget
               childAspectRatio: 1.0, //宽高比为1时，子widget
             ),
             children: selfServices.map((v) {
-              return Container(
-                // color: Colors.red,
-                child: IconButton(
-                  icon: Column(
-                    spacing: 8,
-                    children: [
-                      SvgPicture.asset(v['icon'], width: 32, height: 32),
-                      Container(
-                        height: 20,
-                        child: Text(v['label'], style: TextStyle(fontSize: 14)),
-                      ),
-                    ],
-                  ),
-                  onPressed: () {
-                    Get.toNamed(v['path']);
-                  },
+              return IconButton(
+                icon: Column(
+                  spacing: 4,
+                  children: [
+                    SvgPicture.asset(v['icon'], width: 32, height: 32),
+                    SizedBox(
+                      child: Text(v['label'], style: TextStyle(fontSize: 14)),
+                    ),
+                  ],
                 ),
+                onPressed: () {
+                  Get.toNamed(v['path']);
+                },
               );
             }).toList(),
           ),

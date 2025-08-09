@@ -1,3 +1,4 @@
+import 'package:eams_app/views/home/hot-services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:card_swiper/card_swiper.dart';
@@ -7,18 +8,15 @@ class HomePage extends StatelessWidget {
   List<Container> cards = [
     Container(
       alignment: Alignment.center,
-      child: const Text('1'),
       color: Colors.blue,
     ),
     Container(
       alignment: Alignment.center,
-      child: const Text('2'),
       color: Colors.red,
     ),
     Container(
       alignment: Alignment.center,
-      child: const Text('3'),
-      color: Colors.purple,
+       color: Colors.purple,
     ),
   ];
   @override
@@ -57,9 +55,9 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
-              // Row(children: [Text("在线学习"), Text("个人奖励"), Text("个人考勤")]),
               SelfServicePage(),
-              Row(children: [Text("其他功能111")])
+              Row(children: [Text("热门精选")]),
+              HotServicePage(),
             ],
           ),
         ),

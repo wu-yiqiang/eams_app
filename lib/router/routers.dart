@@ -1,20 +1,23 @@
-import "package:eams_app/views/attendance/attendance.dart";
-import "package:eams_app/views/business-trip/business-trip.dart";
-import "package:eams_app/views/contract/contract.dart";
-import "package:eams_app/views/field-work/field-work.dart";
-import "package:eams_app/views/holiday/holiday.dart";
-import "package:eams_app/views/overwork/overwork.dart";
-import "package:eams_app/views/punish/punish.dart";
-import "package:eams_app/views/reward/reward.dart";
-import "package:eams_app/views/salary-adjust/salary-adjust.dart";
-import "package:eams_app/views/training/training.dart";
-import "package:eams_app/views/useds/useds.dart";
+import "package:eams_app/views/admin/assets/equipment/equipment.dart";
+import "package:eams_app/views/admin/assets/repair/repair.dart";
+import "package:eams_app/views/admin/assets/vehicle/vehicle.dart";
+import "package:eams_app/views/portal/attendance/attendance.dart";
+import "package:eams_app/views/portal/business-trip/business-trip.dart";
+import "package:eams_app/views/portal/contract/contract.dart";
+import "package:eams_app/views/portal/field-work/field-work.dart";
+import "package:eams_app/views/portal/holiday/holiday.dart";
+import "package:eams_app/views/portal/overwork/overwork.dart";
+import "package:eams_app/views/portal/punish/punish.dart";
+import "package:eams_app/views/portal/reward/reward.dart";
+import "package:eams_app/views/portal/salary-adjust/salary-adjust.dart";
+import "package:eams_app/views/portal/training/training.dart";
+import "package:eams_app/views/portal/useds/useds.dart";
 import "package:flutter/cupertino.dart";
 import "package:get/get.dart";
 import 'package:eams_app/views/tabs/tabs.dart';
 import 'package:eams_app/views/home/home.dart';
 import "package:eams_app/views/login.dart";
-import "package:eams_app/views/todo/todo.dart";
+import "package:eams_app/views/portal/todo/todo.dart";
 
 final routerMap = <String, String>{
   "TABS": "/tabs",
@@ -32,6 +35,9 @@ final routerMap = <String, String>{
   "REWARD": '/reward',
   "PUNISH": '/punish',
   "USEDS": '/useds',
+  "VEHICLE": '/vehicle',
+  "EQUIPMENT": '/equipment',
+  "REPAIR": '/repair'
 };
 
 abstract class AppPages {
@@ -96,6 +102,18 @@ abstract class AppPages {
       name: routerMap['USEDS']!,
       page: () => beforeRouter(routerMap['USEDS']!),
     ),
+    GetPage(
+      name: routerMap['VEHICLE']!,
+      page: () => beforeRouter(routerMap['VEHICLE']!),
+    ),
+    GetPage(
+      name: routerMap['EQUIPMENT']!,
+      page: () => beforeRouter(routerMap['EQUIPMENT']!),
+    ),
+    GetPage(
+      name: routerMap['REPAIR']!,
+      page: () => beforeRouter(routerMap['REPAIR']!),
+    ),
   ];
 }
 
@@ -119,5 +137,8 @@ Widget beforeRouter(String pageName) {
   if (pageName == routerMap['REWARD']!) return RewardPage();
   if (pageName == routerMap['PUNISH']!) return PunishPage();
   if (pageName == routerMap['USEDS']!) return UsedsPage();
+  if (pageName == routerMap['VEHICLE']!) return VehiclePage();
+  if (pageName == routerMap['EQUIPMENT']!) return EquipmentPage();
+  if (pageName == routerMap['REPAIR']!) return RepairPage();
   return HomePage();
 }
