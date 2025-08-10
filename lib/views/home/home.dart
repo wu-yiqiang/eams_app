@@ -1,4 +1,5 @@
 import 'package:eams_app/views/home/hot-services.dart';
+import 'package:eams_app/views/home/notices.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:card_swiper/card_swiper.dart';
@@ -22,15 +23,12 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text("个人中心"), backgroundColor: Colors.white),
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.all(10),
+          padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
           child: Column(
             children: [
-              Text(
-                "EAMS",
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
-              ),
               Row(
                 children: [
                   Expanded(
@@ -58,6 +56,7 @@ class HomePage extends StatelessWidget {
               SelfServicePage(),
               Row(children: [Text("热门精选")]),
               HotServicePage(),
+              NoticesPage(),
             ],
           ),
         ),

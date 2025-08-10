@@ -1,3 +1,5 @@
+import 'package:eams_app/common/const.dart';
+import 'package:eams_app/router/routers.dart';
 import 'package:eams_app/views/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -59,6 +61,7 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             Container(
+              padding: EdgeInsets.all(20),
               child: Flex(
                 direction: Axis.horizontal,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -66,7 +69,7 @@ class LoginPage extends StatelessWidget {
                   ElevatedButton.icon(
                     style: ButtonStyle(
                       backgroundColor: WidgetStateProperty.all(
-                        Colors.blue,
+                        orangeTheme,
                       ), // 按扭背景颜色
                       foregroundColor: WidgetStateProperty.all(
                         Colors.white,
@@ -84,7 +87,7 @@ class LoginPage extends StatelessWidget {
                   ElevatedButton.icon(
                     style: ButtonStyle(
                       backgroundColor: WidgetStateProperty.all(
-                        Colors.blue,
+                        orangeTheme,
                       ), // 按扭背景颜色
                       foregroundColor: WidgetStateProperty.all(
                         Colors.white,
@@ -98,12 +101,11 @@ class LoginPage extends StatelessWidget {
                     icon: Icon(Icons.login),
                     label: Text("登录"),
                     onPressed: () {
-                      Get.to(HomePage());
+                      Get.toNamed(routerMap['TABS']!);
                     },
                   ),
                 ],
               ),
-              padding: EdgeInsets.all(20),
             ),
           ],
         ),

@@ -5,25 +5,25 @@ import 'package:eams_app/router/routers.dart';
 
 class HotServicePage extends StatelessWidget {
   final List selfServices = [
-    {"path": routerMap['TODO'], "label": "今日菜谱", "icon": "assets/svg/todo.svg"},
+    {"path": routerMap['TODO'], "label": "今日菜单", "icon": "assets/svg/todo.svg"},
     {
       "path": routerMap['ATTENDANCE'],
-      "label": "考勤",
+      "label": "今日菜单2",
       "icon": "assets/svg/attendance.svg",
     },
     {
       "path": routerMap['ATTENDANCE'],
-      "label": "考勤",
+      "label": "今日菜单3",
       "icon": "assets/svg/attendance.svg",
     },
     {
       "path": routerMap['ATTENDANCE'],
-      "label": "考勤",
+      "label": "今日菜单4",
       "icon": "assets/svg/attendance.svg",
     },
     {
       "path": routerMap['ATTENDANCE'],
-      "label": "考勤",
+      "label": "今日菜单5",
       "icon": "assets/svg/attendance.svg",
     },
   ];

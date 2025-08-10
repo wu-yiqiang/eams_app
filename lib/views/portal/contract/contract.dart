@@ -14,7 +14,7 @@ class ContractPage extends StatelessWidget {
               width: 120,
               height: 120,
               margin: EdgeInsets.only(top: 30, bottom: 30),
-              child: Text("合同"),
+              child: Text("sss"),
             ),
           ],
         ),

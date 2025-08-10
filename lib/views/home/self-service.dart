@@ -66,7 +66,7 @@ class SelfServicePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 164,
+      height: 200,
       child: Expanded(
         child: Container(
           margin: EdgeInsets.only(top: 10, bottom: 10),
@@ -76,7 +76,7 @@ class SelfServicePage extends StatelessWidget {
           ),
           child: GridView(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 5, //横轴三个子widget
+              crossAxisCount: 4, //横轴三个子widget
               childAspectRatio: 1.0, //宽高比为1时，子widget
             ),
             children: selfServices.map((v) {
@@ -84,9 +84,9 @@ class SelfServicePage extends StatelessWidget {
                 icon: Column(
                   spacing: 4,
                   children: [
-                    SvgPicture.asset(v['icon'], width: 28, height: 28),
+                    SvgPicture.asset(v['icon'], width: 40, height: 40),
                     SizedBox(
-                      child: Text(v['label'], style: TextStyle(fontSize: 12)),
+                      child: Text(v['label'], style: TextStyle(fontSize: 14)),
                     ),
                   ],
                 ),
