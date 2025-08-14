@@ -23,7 +23,12 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("个人中心"), backgroundColor: Colors.white),
+      appBar: AppBar(
+        title: Text("个人中心"),
+        leading: null,
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.white,
+      ),
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),

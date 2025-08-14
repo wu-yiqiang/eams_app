@@ -40,7 +40,6 @@ class UserPage extends StatelessWidget {
               ],
             ),
             Container(
-              padding: EdgeInsets.all(10),
               margin: EdgeInsets.all(10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(6),
@@ -67,6 +66,7 @@ class UserPage extends StatelessWidget {
                               child: Row(
                                 children: [
                                   Container(
+                                    padding: EdgeInsets.all(6),
                                     child: Row(
                                       spacing: 4,
                                       children: [
@@ -83,7 +83,6 @@ class UserPage extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            Container(child: Container(child: Text("系统设置"))),
                           ],
                         ),
                       ],

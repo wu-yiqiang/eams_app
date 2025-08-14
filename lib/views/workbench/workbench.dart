@@ -19,6 +19,8 @@ class WorkbenchPage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text("Menus"),
+          leading: null,
+          automaticallyImplyLeading: false,
           actions: [
             IconButton(onPressed: () {}, icon: Icon(Icons.add)),
             IconButton(onPressed: () {}, icon: Icon(Icons.delete)),
