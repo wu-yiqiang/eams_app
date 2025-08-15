@@ -5,6 +5,11 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 class UserPage extends StatelessWidget {
+  final items = [
+    {"icon": 'person', "label": '个人中心', "path": 'ssd'},
+    {"icon": 'setting', "label": '偏好设置', "path": 'sdsd'},
+    {"icon": 'setting', "label": '隐私协议', "path": 'sdsd'},
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,50 +50,47 @@ class UserPage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(6),
                 color: Colors.white,
               ),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Row(
-                      children: [
-                        Column(
-                          spacing: 6,
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(
-                                    width: 1,
-                                    color: Colors.grey,
-                                  ),
-                                ),
-                                color: Colors.white,
-                              ),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    padding: EdgeInsets.all(6),
-                                    child: Row(
-                                      spacing: 4,
-                                      children: [
-                                        SvgPicture.asset(
-                                          'assets/svg/setting.svg',
-                                          width: 20,
-                                          height: 20,
-                                        ),
-                                        Text("个人信息"),
-                                      ],
-                                    ),
-                                  ),
-                                  Icon(Icons.keyboard_arrow_right),
-                                ],
+              child: Column(
+                children: items.map((item) {
+                  return Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                width: 1,
+                                color: const Color.fromARGB(255, 181, 181, 181),
                               ),
                             ),
-                          ],
+                            color: const Color.fromARGB(255, 239, 239, 239),
+                          ),
+                          child: Flex(
+                            direction: Axis.horizontal,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                padding: EdgeInsets.all(6),
+                                child: Row(
+                                  spacing: 4,
+                                  children: [
+                                    SvgPicture.asset(
+                                      'assets/svg/${item['icon']!}.svg',
+                                      width: 20,
+                                      height: 20,
+                                    ),
+                                    Text(item['label']!),
+                                  ],
+                                ),
+                              ),
+                              Icon(Icons.keyboard_arrow_right),
+                            ],
+                          ),
                         ),
-                      ],
-                    ),
-                  ),
-                ],
+                      ),
+                    ],
+                  );
+                }).toList(),
               ),
             ),
             Container(

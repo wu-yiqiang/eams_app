@@ -37,9 +37,9 @@ class AssetsPage extends StatelessWidget {
                 icon: Column(
                   spacing: 4,
                   children: [
-                    SvgPicture.asset(v['icon'], width: 40, height: 40),
+                    SvgPicture.asset(v['icon'], width: 36, height: 36),
                     SizedBox(
-                      child: Text(v['label'], style: TextStyle(fontSize: 14)),
+                      child: Text(v['label'], style: TextStyle(fontSize: 13)),
                     ),
                   ],
                 ),
