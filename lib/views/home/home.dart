@@ -24,7 +24,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("个人中心"),
+        title: Text("首页"),
         leading: null,
         automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
