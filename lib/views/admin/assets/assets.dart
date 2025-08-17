@@ -1,3 +1,4 @@
+import 'package:eams_app/components/MenuButton.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/svg.dart';
@@ -32,26 +33,16 @@ class AssetsPage extends StatelessWidget {
               crossAxisCount: 5, //横轴三个子widget
               childAspectRatio: 1.0, //宽高比为1时，子widget
             ),
-            children: selfServices.map((v) {
-              return IconButton(
-                icon: Column(
-                  spacing: 4,
-                  children: [
-                    SvgPicture.asset(v['icon'], width: 36, height: 36),
-                    SizedBox(
-                      child: Text(v['label'], style: TextStyle(fontSize: 13)),
-                    ),
-                  ],
-                ),
-                onPressed: () {
-                  Get.toNamed(v['path']);
-                },
-              );
-            }).toList(),
+            children: _menus(),
           ),
         ),
       ),
     );
+  }
+  List<Widget> _menus() {
+    return selfServices.map((item) {
+      return MenuButton(item: item);
+    }).toList();
   }
 }
 
