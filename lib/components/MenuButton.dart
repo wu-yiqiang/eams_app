@@ -17,8 +17,8 @@ class _MenuButtonState extends State<MenuButton> {
       icon: Column(
         spacing: 4,
         children: [
-          SvgPicture.asset(widget.item['icon'], width: 36, height: 36),
-          SizedBox(child: Text(widget.item['label'], style: TextStyle(fontSize: 13))),
+          SvgPicture.asset(widget.item['icon'], width: 34, height: 34),
+          SizedBox(child: Text(widget.item['label'], style: TextStyle(fontSize: 12))),
         ],
       ),
       onPressed: () {

@@ -5,26 +5,35 @@ import 'package:eams_app/router/routers.dart';
 
 class HotServicePage extends StatelessWidget {
   final List selfServices = [
-    {"path": routerMap['TODO'], "label": "今日菜单", "icon": "assets/svg/todo.svg"},
     {
       "path": routerMap['ATTENDANCE'],
-      "label": "今日菜单2",
-      "icon": "assets/svg/attendance.svg",
+      "label": "自主报修",
+      "icon": "assets/images/repair.png",
+    },
+    {
+      "path": routerMap['TODO'],
+      "label": "今日菜谱",
+      "icon": "assets/images/menu.png",
     },
     {
       "path": routerMap['ATTENDANCE'],
-      "label": "今日菜单3",
-      "icon": "assets/svg/attendance.svg",
+      "label": "电桩情况",
+      "icon": "assets/images/pile.png",
     },
     {
       "path": routerMap['ATTENDANCE'],
-      "label": "今日菜单4",
-      "icon": "assets/svg/attendance.svg",
+      "label": "车位查询",
+      "icon": "assets/images/park.png",
     },
     {
       "path": routerMap['ATTENDANCE'],
-      "label": "今日菜单5",
-      "icon": "assets/svg/attendance.svg",
+      "label": "帐户余额",
+      "icon": "assets/images/account.png",
+    },
+    {
+      "path": routerMap['ATTENDANCE'],
+      "label": "自主申报",
+      "icon": "assets/images/report.png",
     },
   ];
   @override
@@ -42,13 +51,21 @@ class HotServicePage extends StatelessWidget {
               spacing: 6,
               children: selfServices.map((v) {
                 return Container(
-                  width: 100,
-                  height: 100,
+                  width: 60,
+                  height: 60,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(6),
-                    color: Colors.amber,
+                    // color: Colors.amber,
+                    // border: Border.all(color: Colors.white),
+                    image: DecorationImage(
+                      image: AssetImage(v['icon']),
+                      fit: BoxFit.cover,
+                    )
                   ),
-                  child: Text(v['label']),
+                  // child: Text(
+                  //   v['label'],
+                  //   style: TextStyle(fontSize: 14, color: Colors.white),
+                  // ),
                 );
               }).toList(),
             ),

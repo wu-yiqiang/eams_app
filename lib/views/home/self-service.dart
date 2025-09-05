@@ -66,7 +66,7 @@ class SelfServicePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 186,
+      height: 160,
       child: Expanded(
         child: Container(
           margin: EdgeInsets.only(top: 10, bottom: 10),
@@ -84,9 +84,9 @@ class SelfServicePage extends StatelessWidget {
                 icon: Column(
                   spacing: 4,
                   children: [
-                    SvgPicture.asset(v['icon'], width: 32, height: 32),
+                    SvgPicture.asset(v['icon'], width: 30, height: 30),
                     SizedBox(
-                      child: Text(v['label'], style: TextStyle(fontSize: 13)),
+                      child: Text(v['label'], style: TextStyle(fontSize: 12)),
                     ),
                   ],
                 ),
