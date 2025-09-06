@@ -64,7 +64,7 @@ class HotServicePage extends StatelessWidget {
                   ),
                   child: TextButton(
                     child: Text(''),
-                    onPressed: () => {Get.toNamed(routerMap['MENUS']!)},
+                    onPressed: () => {Get.toNamed(v['path'])},
                   ),
                 );
               }).toList(),

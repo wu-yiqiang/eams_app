@@ -8,8 +8,6 @@ class MenuPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("今日菜谱"),
-        leading: null,
-        automaticallyImplyLeading: false,
       ),
       body: SafeArea(
         child: Column(

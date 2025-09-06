@@ -9,6 +9,7 @@ class UserPage extends StatelessWidget {
     {"icon": 'person', "label": '个人中心', "path": routerMap['PERSON']},
     {"icon": 'setting', "label": '偏好设置', "path": routerMap['SETTING']},
     {"icon": 'setting', "label": '隐私协议', "path": routerMap['POLICY']},
+    {"icon": 'explore', "label": '操作指引', "path": routerMap['GUIDE']},
   ];
   @override
   Widget build(BuildContext context) {

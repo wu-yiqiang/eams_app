@@ -13,6 +13,7 @@ import "package:eams_app/views/portal/reward/reward.dart";
 import "package:eams_app/views/portal/salary-adjust/salary-adjust.dart";
 import "package:eams_app/views/portal/training/training.dart";
 import "package:eams_app/views/portal/useds/useds.dart";
+import "package:eams_app/views/user/guide.dart";
 import "package:eams_app/views/user/personnel.dart";
 import "package:eams_app/views/user/policy.dart";
 import "package:eams_app/views/user/setting.dart";
@@ -47,7 +48,8 @@ final routerMap = <String, String>{
   "PERSON": '/person',
   "SETTING": '/setting',
   "MENUS": '/menus',
-  "PARK": '/park'
+  "PARK": '/park',
+  "GUIDE": '/guide'
 };
 
 abstract class AppPages {
@@ -144,6 +146,10 @@ abstract class AppPages {
       name: routerMap['PARK']!,
       page: () => beforeRouter(routerMap['PARK']!),
     ),
+    GetPage(
+      name: routerMap['GUIDE']!,
+      page: () => beforeRouter(routerMap['GUIDE']!),
+    ),
   ];
 }
 
@@ -175,5 +181,6 @@ Widget beforeRouter(String pageName) {
   if (pageName == routerMap['SETTING']!) return SettingPage();
   if (pageName == routerMap['MENUS']!) return MenuPage();
   if (pageName == routerMap['PARK']!) return ParkPage();
+  if (pageName == routerMap['GUIDE']!) return GuidePage();
   return HomePage();
 }
