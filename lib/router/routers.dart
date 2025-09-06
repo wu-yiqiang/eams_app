@@ -19,8 +19,9 @@ import "package:flutter/cupertino.dart";
 import "package:get/get.dart";
 import 'package:eams_app/views/tabs/tabs.dart';
 import 'package:eams_app/views/home/home.dart';
-import "package:eams_app/views/login.dart";
+import "package:eams_app/views/login/login.dart";
 import "package:eams_app/views/portal/todo/todo.dart";
+import 'package:eams_app/views/home/menu/menu.dart';
 
 final routerMap = <String, String>{
   "TABS": "/tabs",
@@ -42,10 +43,9 @@ final routerMap = <String, String>{
   "EQUIPMENT": '/equipment',
   "REPAIR": '/repair',
   "POLICY": '/policy',
-    "PERSON": '/person'
-,
-  "SETTING": '/setting'
-
+  "PERSON": '/person',
+  "SETTING": '/setting',
+  "MENUS": '/menus'
 };
 
 abstract class AppPages {
@@ -94,7 +94,7 @@ abstract class AppPages {
       name: routerMap['TRAINING']!,
       page: () => beforeRouter(routerMap['TRAINING']!),
     ),
-     GetPage(
+    GetPage(
       name: routerMap['SALARYADJUST']!,
       page: () => beforeRouter(routerMap['SALARYADJUST']!),
     ),
@@ -134,6 +134,10 @@ abstract class AppPages {
       name: routerMap['SETTING']!,
       page: () => beforeRouter(routerMap['SETTING']!),
     ),
+     GetPage(
+      name: routerMap['MENUS']!,
+      page: () => beforeRouter(routerMap['MENUS']!),
+    ),
   ];
 }
 
@@ -163,5 +167,6 @@ Widget beforeRouter(String pageName) {
   if (pageName == routerMap['POLICY']!) return PolicyPage();
   if (pageName == routerMap['PERSON']!) return PersonPage();
   if (pageName == routerMap['SETTING']!) return SettingPage();
+  if (pageName == routerMap['MENUS']!) return MenuPage();
   return HomePage();
 }

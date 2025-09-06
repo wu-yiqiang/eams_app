@@ -4,11 +4,17 @@ import 'package:eams_app/views/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:eams_app/views/tabs/tabs.dart';
+import 'package:eams_app/views/login/controller/login_controller.dart';
+import 'package:eams_app/api/user.dart';
+import 'package:eams_app/views/tabs/controller/tab_controller.dart';
 
 class LoginPage extends StatelessWidget {
+  LoginController loginController = Get.put(LoginController());
+  final TabsController tabsController = Get.put(TabsController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Column(
           children: [
@@ -20,33 +26,6 @@ class LoginPage extends StatelessWidget {
             ),
             Center(
               child: Container(
-                child: Container(
-                  child: Column(
-                    children: [
-                      Container(
-                        child: TextField(
-                          keyboardType: TextInputType.text,
-                          decoration: InputDecoration(
-                            labelText: "帐号",
-                            hintText: "帐号",
-                            prefixIcon: Icon(Icons.person),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: TextField(
-                          keyboardType: TextInputType.emailAddress,
-                          decoration: InputDecoration(
-                            labelText: "密码",
-                            hintText: "密码",
-                            prefixIcon: Icon(Icons.lock),
-                          ),
-                          obscureText: true,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
                 width: 400,
                 padding: EdgeInsets.only(
                   top: 40,
@@ -57,6 +36,44 @@ class LoginPage extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Color.fromRGBO(240, 240, 240, 0.3),
                   borderRadius: const BorderRadius.all(Radius.circular(4)),
+                ),
+                child: Form(
+                  child: Column(
+                    children: [
+                      Container(
+                        child: TextFormField(
+                          keyboardType: TextInputType.text,
+                          initialValue:
+                              loginController.LoginForm.value['email']!,
+                          onChanged: (value) {
+                            loginController.setLoginForm('email', value);
+                          },
+                          decoration: InputDecoration(
+                            labelText: "帐号",
+                            hintText: "帐号",
+                            prefixIcon: Icon(Icons.person),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        child: TextFormField(
+                          keyboardType: TextInputType.emailAddress,
+                          initialValue:
+                              loginController.LoginForm.value['password']!,
+
+                          onChanged: (value) {
+                            loginController.setLoginForm('password', value);
+                          },
+                          decoration: InputDecoration(
+                            labelText: "密码",
+                            hintText: "密码",
+                            prefixIcon: Icon(Icons.lock),
+                          ),
+                          obscureText: true,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -100,8 +117,13 @@ class LoginPage extends StatelessWidget {
                     ),
                     icon: Icon(Icons.login),
                     label: Text("登录"),
-                    onPressed: () {
+                    onPressed: () async {
+                      final data = await UserApi.login(
+                        loginController.getLoginForm().value,
+                      );
+                      print("登录数据${data}");
                       Get.toNamed(routerMap['TABS']!);
+                      tabsController.setCurrent(0);
                     },
                   ),
                 ],

@@ -11,7 +11,7 @@ class HotServicePage extends StatelessWidget {
       "icon": "assets/images/repair.png",
     },
     {
-      "path": routerMap['TODO'],
+      "path": routerMap['MENUS'],
       "label": "今日菜谱",
       "icon": "assets/images/menu.png",
     },
@@ -62,10 +62,10 @@ class HotServicePage extends StatelessWidget {
                       fit: BoxFit.cover,
                     )
                   ),
-                  // child: Text(
-                  //   v['label'],
-                  //   style: TextStyle(fontSize: 14, color: Colors.white),
-                  // ),
+                  child: TextButton(
+                    child: Text(''),
+                    onPressed: () => {Get.toNamed(routerMap['MENUS']!)},
+                  ),
                 );
               }).toList(),
             ),
