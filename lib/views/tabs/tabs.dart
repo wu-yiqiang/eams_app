@@ -12,19 +12,19 @@ class TabsPage extends StatelessWidget {
   final barItems = [
     BottomNavigationBarItem(
       icon: Icon(Icons.home, color: Colors.black),
-      label: "主页",
+      label: 'home'.tr,
       activeIcon: Icon(Icons.home, color: orangeTheme),
       backgroundColor: orangeTheme,
     ),
     BottomNavigationBarItem(
       icon: Icon(Icons.workspaces, color: Colors.black),
-      label: "工作台",
+      label: 'workspace'.tr,
       activeIcon: Icon(Icons.workspaces, color: orangeTheme),
       backgroundColor: orangeTheme,
     ),
     BottomNavigationBarItem(
       icon: Icon(Icons.manage_accounts, color: Colors.black),
-      label: "用户",
+      label: 'user'.tr,
       activeIcon: Icon(Icons.manage_accounts, color: orangeTheme),
       backgroundColor: orangeTheme,
     ),

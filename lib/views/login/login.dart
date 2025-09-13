@@ -98,8 +98,11 @@ class LoginPage extends StatelessWidget {
                       ), // 圆角
                     ),
                     icon: Icon(Icons.login),
-                    label: Text("注册"),
-                    onPressed: () {},
+                    label: Text('register'.tr),
+                    onPressed: () {
+                      Get.toNamed(routerMap['TABS']!);
+                      tabsController.setCurrent(0);
+                    },
                   ),
                   ElevatedButton.icon(
                     style: ButtonStyle(
@@ -116,7 +119,7 @@ class LoginPage extends StatelessWidget {
                       ), // 圆角
                     ),
                     icon: Icon(Icons.login),
-                    label: Text("登录"),
+                    label: Text('login'.tr),
                     onPressed: () async {
                       final data = await UserApi.login(
                         loginController.getLoginForm().value,
