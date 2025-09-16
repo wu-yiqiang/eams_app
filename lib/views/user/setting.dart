@@ -34,13 +34,6 @@ class SettingPage extends StatelessWidget {
                           },
                           child: Text('confirm'.tr),
                         ),
-                        // //取消按钮
-                        cancel: TextButton(
-                          child: Text('cancel'.tr),
-                          onPressed: () {
-                            Get.back();
-                          },
-                        ),
                       );
                     },
                   ),
