@@ -66,7 +66,7 @@ class ArcViewState extends State<ArcView> with SingleTickerProviderStateMixin {
           ),
           ),
           Positioned(
-            left: 55,
+            left: 63,
             top: 90,
             child: Text(
               "${widget.currentCount} / ${widget.total}",

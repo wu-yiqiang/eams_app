@@ -35,11 +35,6 @@ class HotServicePage extends StatelessWidget {
       "label": "自主申报",
       "icon": "assets/images/report.png",
     },
-    {
-      "path": routerMap['ATTENDANCE'],
-      "label": "自主申报",
-      "icon": "assets/images/report.png",
-    },
   ];
   @override
   Widget build(BuildContext context) {
