@@ -21,8 +21,9 @@ class AssetsPage extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      child: Expanded(
+    return Row(
+      children: [
+        Expanded(
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(6),
@@ -36,7 +37,8 @@ class AssetsPage extends StatelessWidget {
             children: _menus(),
           ),
         ),
-      ),
+        ),
+      ]
     );
   }
   List<Widget> _menus() {

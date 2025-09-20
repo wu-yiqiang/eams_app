@@ -35,43 +35,55 @@ class HotServicePage extends StatelessWidget {
       "label": "自主申报",
       "icon": "assets/images/report.png",
     },
+    {
+      "path": routerMap['ATTENDANCE'],
+      "label": "自主申报",
+      "icon": "assets/images/report.png",
+    },
   ];
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 100,
-      child: Expanded(
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(6),
-          ),
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              spacing: 6,
-              children: selfServices.map((v) {
-                return Container(
-                  width: 60,
-                  height: 60,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(6),
-                    // color: Colors.amber,
-                    // border: Border.all(color: Colors.white),
-                    image: DecorationImage(
-                      image: AssetImage(v['icon']),
-                      fit: BoxFit.cover,
-                    )
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(child: Text("热门精选"), margin: EdgeInsets.only(top: 20)),
+        Row(
+          children: [
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(6),
+                ),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    spacing: 6,
+                    children: selfServices.map((v) {
+                      return Container(
+                        width: 60,
+                        height: 60,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(6),
+                          // color: Colors.amber,
+                          // border: Border.all(color: Colors.white),
+                          image: DecorationImage(
+                            image: AssetImage(v['icon']),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        child: TextButton(
+                          child: Text(''),
+                          onPressed: () => {Get.toNamed(v['path'])},
+                        ),
+                      );
+                    }).toList(),
                   ),
-                  child: TextButton(
-                    child: Text(''),
-                    onPressed: () => {Get.toNamed(v['path'])},
-                  ),
-                );
-              }).toList(),
-            ),
-          ),
-          ),
+                ),
+              ),
         ),
+          ],
+        ),
+      ],
     );
   }
 }

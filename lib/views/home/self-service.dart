@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:eams_app/router/routers.dart';
 
-
 class SelfServicePage extends StatelessWidget {
   final List selfServices = [
     {"path": routerMap['TODO'], "label": "待办", "icon": "assets/svg/todo.svg"},
@@ -65,38 +64,34 @@ class SelfServicePage extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       height: 160,
-      child: Expanded(
-        child: Container(
-          margin: EdgeInsets.only(top: 10, bottom: 10),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(6),
-            color: const Color.fromARGB(255, 255, 255, 255),
-          ),
-          child: GridView(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 5, //横轴三个子widget
-              childAspectRatio: 1.0, //宽高比为1时，子widget
-            ),
-            children: selfServices.map((v) {
-              return IconButton(
-                icon: Column(
-                  spacing: 4,
-                  children: [
-                    SvgPicture.asset(v['icon'], width: 30, height: 30),
-                    SizedBox(
-                      child: Text(v['label'], style: TextStyle(fontSize: 12)),
-                    ),
-                  ],
-                ),
-                onPressed: () {
-                  Get.toNamed(v['path']);
-                },
-              );
-            }).toList(),
-          ),
+      margin: EdgeInsets.only(top: 10, bottom: 10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(6),
+        color: const Color.fromARGB(255, 255, 255, 255),
+      ),
+      child: GridView(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 5, //横轴三个子widget
+          childAspectRatio: 1.0, //宽高比为1时，子widget
         ),
+        children: selfServices.map((v) {
+          return IconButton(
+            icon: Column(
+              spacing: 4,
+              children: [
+                SvgPicture.asset(v['icon'], width: 30, height: 30),
+                SizedBox(
+                  child: Text(v['label'], style: TextStyle(fontSize: 12)),
+                ),
+              ],
+            ),
+            onPressed: () {
+              Get.toNamed(v['path']);
+            },
+          );
+        }).toList(),
       ),
     );
   }

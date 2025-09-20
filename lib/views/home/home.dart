@@ -59,7 +59,6 @@ class HomePage extends StatelessWidget {
                 ],
               ),
               SelfServicePage(),
-              Row(children: [Text("热门精选")]),
               HotServicePage(),
               NoticesPage(),
             ],
