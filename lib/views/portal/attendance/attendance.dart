@@ -6,7 +6,7 @@ class AttendancePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("考勤记录")),
+      appBar: AppBar(title: Text("自主报修")),
       body: SafeArea(
         child: Column(
           children: [
@@ -14,7 +14,7 @@ class AttendancePage extends StatelessWidget {
               width: 120,
               height: 120,
               margin: EdgeInsets.only(top: 30, bottom: 30),
-              child: Text("考勤记录"),
+              child: Text("自主报修"),
             ),
           ],
         ),

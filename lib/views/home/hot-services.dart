@@ -16,7 +16,7 @@ class HotServicePage extends StatelessWidget {
       "icon": "assets/images/menu.png",
     },
     {
-      "path": routerMap['ATTENDANCE'],
+      "path": routerMap['CHARGE'],
       "label": "电桩情况",
       "icon": "assets/images/pile.png",
     },
@@ -26,7 +26,7 @@ class HotServicePage extends StatelessWidget {
       "icon": "assets/images/park.png",
     },
     {
-      "path": routerMap['ATTENDANCE'],
+      "path": routerMap['CREDIT'],
       "label": "帐户余额",
       "icon": "assets/images/account.png",
     },

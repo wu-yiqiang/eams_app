@@ -21,8 +21,8 @@ class MenuPage extends StatelessWidget {
                   );
                 },
                 itemCount: 4,
-                itemWidth: 400,
-                itemHeight: 600,
+                itemWidth: 300,
+                itemHeight: 450,
                 layout: SwiperLayout.STACK,
                 // control: SwiperControl(),
               ),

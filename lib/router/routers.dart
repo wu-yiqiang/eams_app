@@ -1,6 +1,8 @@
 import "package:eams_app/views/admin/assets/equipment/equipment.dart";
 import "package:eams_app/views/admin/assets/repair/repair.dart";
 import "package:eams_app/views/admin/assets/vehicle/vehicle.dart";
+import "package:eams_app/views/home/charge/charge.dart";
+import "package:eams_app/views/home/credit/credit.dart";
 import "package:eams_app/views/home/park/park.dart";
 import "package:eams_app/views/portal/attendance/attendance.dart";
 import "package:eams_app/views/portal/business-trip/business-trip.dart";
@@ -52,6 +54,8 @@ final routerMap = <String, String>{
   "MENUS": '/menus',
   "PARK": '/park',
   "GUIDE": '/guide',
+  "CREDIT": '/credit',
+  "CHARGE": '/charge'
 };
 
 abstract class AppPages {
@@ -156,6 +160,14 @@ abstract class AppPages {
       name: routerMap['TODODETAIL']!,
       page: () => beforeRouter(routerMap['TODODETAIL']!),
     ),
+    GetPage(
+      name: routerMap['CREDIT']!,
+      page: () => beforeRouter(routerMap['CREDIT']!),
+    ),
+    GetPage(
+      name: routerMap['CHARGE']!,
+      page: () => beforeRouter(routerMap['CHARGE']!),
+    ),
   ];
 }
 
@@ -189,5 +201,7 @@ Widget beforeRouter(String pageName) {
   if (pageName == routerMap['PARK']!) return ParkPage();
   if (pageName == routerMap['GUIDE']!) return GuidePage();
   if (pageName == routerMap['TODODETAIL']!) return TodoDetailPage();
+  if (pageName == routerMap['CREDIT']!) return CreditPage();
+  if (pageName == routerMap['CHARGE']!) return ChargePage();
   return HomePage();
 }
