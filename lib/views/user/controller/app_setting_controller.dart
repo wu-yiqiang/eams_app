@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 import 'dart:ui';
-// import 'package:get_storage/get_storage.dart';
+import 'package:get_storage/get_storage.dart';
 
 class AppSettingController extends GetxController {
-  // final appSettingStorage = GetStorage('AppSetting');
+  final appSettingStorage = GetStorage('AppSetting');
   final appSetting = Rx<Map<String, String>>({
     'language': 'en',
     'country': 'US',
