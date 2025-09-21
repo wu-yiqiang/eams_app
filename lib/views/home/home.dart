@@ -1,7 +1,6 @@
 import 'package:eams_app/views/home/hot-services.dart';
 import 'package:eams_app/views/home/notices.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:eams_app/views/home/self-service.dart';
 
