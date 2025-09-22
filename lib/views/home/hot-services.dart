@@ -59,8 +59,6 @@ class HotServicePage extends StatelessWidget {
                         height: 60,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6),
-                          // color: Colors.amber,
-                          // border: Border.all(color: Colors.white),
                           image: DecorationImage(
                             image: AssetImage(v['icon']),
                             fit: BoxFit.cover,

@@ -1,9 +1,12 @@
+import 'dart:ffi';
+
+import 'package:eams_app/views/home/credit/credit_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CreditPage extends StatelessWidget {
-  final visible = false;
+  CreditController creditController = Get.put(CreditController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,12 +14,12 @@ class CreditPage extends StatelessWidget {
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.all(10),
-          child: Column(
+          child: Stack(
             children: [
               Container(
                 width: double.infinity,
-                padding: EdgeInsets.all(20),
-                height: 260,
+                padding: EdgeInsets.all(14),
+                height: 240,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage('assets/images/credit.png'),
@@ -30,25 +33,65 @@ class CreditPage extends StatelessWidget {
                       children: [
                         Text(
                           "帐户余额(RMB)",
-                          style: TextStyle(color: Colors.white, fontSize: 14),
+                          style: TextStyle(color: Colors.white, fontSize: 18),
                         ),
-                        IconButton(
-                          icon: Icon(Icons.visibility),
-                          color: Colors.white,
-                          onPressed: () {
-                          },
+                        Obx(
+                          () => IconButton(
+                            icon: Icon(
+                              creditController.visible.value
+                                  ? Icons.visibility
+                                  : Icons.visibility_off,
+                            ),
+                            color: Colors.white,
+                            onPressed: () {
+                              if (creditController.visible.value) {
+                                creditController.setVisible(false);
+                              } else {
+                                creditController.setVisible(true);
+                              }
+                            },
+                          ),
                         ),
                       ],
                     ),
                     Row(
                       children: [
-                        Text(
-                          "123434.34",
-                          style: TextStyle(color: Colors.white, fontSize: 16),
+                        Obx(
+                          () => Text(
+                            creditController.visible.value
+                                ? creditController.credit.value.toString()
+                                : "******",
+                            style: TextStyle(color: Colors.white, fontSize: 18),
+                          ),
                         ),
                       ],
                     ),
                   ],
+                ),
+                
+              ),
+              Positioned(
+                right: 0,
+                top: 20,
+                child: Container(
+                  padding: EdgeInsets.all(4),
+                  decoration: BoxDecoration(
+                    color: Colors.white38,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(14),
+                      topRight: Radius.circular(0),
+                      bottomLeft: Radius.circular(14),
+                      bottomRight: Radius.circular(0),
+                    ),
+                  ),
+                  child: Text(
+                    "查看历史记录",
+                    style: TextStyle(
+                      color: Colors.white70,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               ),
             ],
