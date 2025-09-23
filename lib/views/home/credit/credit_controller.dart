@@ -1,7 +1,4 @@
-import 'dart:ffi';
-
 import 'package:get/get.dart';
-import 'dart:ui';
 
 class CreditController extends GetxController {
   RxBool visible = false.obs;

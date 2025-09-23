@@ -41,7 +41,7 @@ class HotServicePage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(child: Text("热门精选"), margin: EdgeInsets.only(top: 20)),
+        Container(child: Text("热门精选"), margin: EdgeInsets.only(top: 10)),
         Row(
           children: [
             Expanded(

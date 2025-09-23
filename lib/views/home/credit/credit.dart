@@ -1,9 +1,6 @@
-import 'dart:ffi';
-
 import 'package:eams_app/views/home/credit/credit_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_svg/svg.dart';
 
 class CreditPage extends StatelessWidget {
   CreditController creditController = Get.put(CreditController());
@@ -72,7 +69,7 @@ class CreditPage extends StatelessWidget {
               ),
               Positioned(
                 right: 0,
-                top: 20,
+                top: 30,
                 child: Container(
                   padding: EdgeInsets.all(4),
                   decoration: BoxDecoration(
