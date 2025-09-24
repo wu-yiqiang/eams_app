@@ -1,4 +1,4 @@
-package com.example.eams_app
+package com.example.eams
 
 import io.flutter.embedding.android.FlutterActivity
 
