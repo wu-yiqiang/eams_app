@@ -1,26 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:flutter_svg/svg.dart';
-// import 'package:flutter_pdfview/flutter_pdfview.dart';
+import 'package:pdfx/pdfx.dart';
 
 class GuidePage extends StatelessWidget {
+  final pdfController = PdfControllerPinch(
+    document: PdfDocument.openAsset('assets/pdf/guide.pdf'),
+  );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("操作指引")),
-      // body: PDFView(
-      //   filePath: 'assets/pdf/guide.pdf',
-      //   enableSwipe: true,
-      //   autoSpacing: false,
-      //   pageFling: false,
-      //   backgroundColor: Colors.grey,
-      //   onError: (error) {
-      //     print(error.toString());
-      //   },
-      //   onPageError: (page, error) {
-      //     print('$page: ${error.toString()}');
-      //   },
-      // ),
+      body: PdfViewPinch(controller: pdfController, scrollDirection: Axis.vertical),
     );
   }
 }

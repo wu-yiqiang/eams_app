@@ -1,23 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:pdfx/pdfx.dart';
 
 class ContractPage extends StatelessWidget {
+  final pdfController = PdfControllerPinch(
+    document: PdfDocument.openAsset('assets/pdf/contract.pdf'),
+  );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("个人合同")),
-      body: SafeArea(
-        child: Column(
-          children: [
-            Container(
-              width: 120,
-              height: 120,
-              margin: EdgeInsets.only(top: 30, bottom: 30),
-              child: Text("sss"),
-            ),
-          ],
-        ),
+      body: PdfViewPinch(
+        controller: pdfController,
+        scrollDirection: Axis.vertical,
       ),
     );
   }

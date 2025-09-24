@@ -26,10 +26,8 @@ class SettingPage extends StatelessWidget {
                         middleText: 'changeSettingTips'.tr,
                         radius: 6,
                         barrierDismissible: false,
-                        //确定按钮
                         confirm: TextButton(
                           onPressed: () {
-                            //单击后删除弹框
                             Get.back();
                           },
                           child: Text('confirm'.tr),

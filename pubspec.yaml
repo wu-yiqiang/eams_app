@@ -36,7 +36,7 @@ dependencies:
   flutter_svg: ^2.2.0
   dio: ^5.4.0
   get_storage: ^2.1.1
-  # flutter_pdfview: ^1.4.1
+  pdfx: ^2.9.2
   # webview_flutter: ^4.13.0
 
 dev_dependencies:
@@ -59,6 +59,7 @@ flutter:
     - assets/images/
     - assets/svg/
     - assets/images/menus/
+    - assets/pdf/
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
