@@ -1,4 +1,4 @@
-import 'package:eams_app/utils/request.dart';
+import 'package:eams/utils/request.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 
 // export const playVideo = (name: string, type: string) =>

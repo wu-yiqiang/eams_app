@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:eams_app/views/home/park/progress.dart';
+import 'package:eams/views/home/park/progress.dart';
 import 'dart:math' as math;
 
 class ParkPage extends StatelessWidget {

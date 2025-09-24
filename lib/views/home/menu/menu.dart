@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:get/get.dart';
-import 'package:eams_app/views/home/menu/menu_controller.dart';
+import 'package:eams/views/home/menu/menu_controller.dart';
 
 class MenuPage extends StatelessWidget {
   TodayMenuController menuController = Get.put(TodayMenuController());

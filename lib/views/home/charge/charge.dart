@@ -1,4 +1,4 @@
-import 'package:eams_app/views/home/charge/charge_controll.dart';
+import 'package:eams/views/home/charge/charge_controll.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';

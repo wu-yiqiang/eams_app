@@ -1,8 +1,8 @@
-import 'package:eams_app/components/MenuButton.dart';
+import 'package:eams/components/MenuButton.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:eams_app/router/routers.dart';
+import 'package:eams/router/routers.dart';
 
 
 class AssetsPage extends StatelessWidget {

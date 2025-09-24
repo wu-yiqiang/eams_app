@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:eams_app/views/tabs/controller/tab_controller.dart';
-import 'package:eams_app/views/user/user.dart';
-import 'package:eams_app/views/home/home.dart';
-import 'package:eams_app/views/workbench/workbench.dart';
-import "package:eams_app/common/const.dart";
+import 'package:eams/views/tabs/controller/tab_controller.dart';
+import 'package:eams/views/user/user.dart';
+import 'package:eams/views/home/home.dart';
+import 'package:eams/views/workbench/workbench.dart';
+import "package:eams/common/const.dart";
 
 class TabsPage extends StatelessWidget {
   final TabsController tabsController = Get.put(TabsController());

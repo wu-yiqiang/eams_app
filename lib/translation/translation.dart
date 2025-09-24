@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:eams_app/translation/en_US.dart';
-import 'package:eams_app/translation/zh_CN.dart';
+import 'package:eams/translation/en_US.dart';
+import 'package:eams/translation/zh_CN.dart';
 class Language extends Translations {
 
   @override

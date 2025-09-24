@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:eams_app/router/routers.dart';
+import 'package:eams/router/routers.dart';
 
 class SelfServicePage extends StatelessWidget {
   final List selfServices = [

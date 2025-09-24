@@ -5,18 +5,18 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "eams_app",
+      "name": "eams",
       "request": "launch",
       "type": "dart"
     },
     {
-      "name": "eams_app (profile mode)",
+      "name": "eams (profile mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "profile"
     },
     {
-      "name": "eams_app (release mode)",
+      "name": "eams (release mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "release"

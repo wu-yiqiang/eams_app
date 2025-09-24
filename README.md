@@ -1,4 +1,4 @@
-# eams_app
+# eams
 
 A new Flutter project.
 

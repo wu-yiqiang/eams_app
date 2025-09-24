@@ -1,7 +1,7 @@
-import 'package:eams_app/common/const.dart';
-import 'package:eams_app/views/admin/assets/assets.dart';
-import 'package:eams_app/views/admin/assets/vehicle/vehicle.dart';
-import 'package:eams_app/views/admin/employees/personnel/personnel.dart';
+import 'package:eams/common/const.dart';
+import 'package:eams/views/admin/assets/assets.dart';
+import 'package:eams/views/admin/assets/vehicle/vehicle.dart';
+import 'package:eams/views/admin/employees/personnel/personnel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

@@ -1,8 +1,8 @@
-import 'package:eams_app/views/home/hot-services.dart';
-import 'package:eams_app/views/home/notices.dart';
+import 'package:eams/views/home/hot-services.dart';
+import 'package:eams/views/home/notices.dart';
 import 'package:flutter/material.dart';
 import 'package:card_swiper/card_swiper.dart';
-import 'package:eams_app/views/home/self-service.dart';
+import 'package:eams/views/home/self-service.dart';
 
 class HomePage extends StatelessWidget {
   List<Container> cards = [

@@ -1,4 +1,4 @@
-import 'package:eams_app/router/routers.dart';
+import 'package:eams/router/routers.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/svg.dart';

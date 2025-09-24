@@ -1,12 +1,12 @@
-import 'package:eams_app/common/const.dart';
-import 'package:eams_app/router/routers.dart';
-import 'package:eams_app/views/home/home.dart';
+import 'package:eams/common/const.dart';
+import 'package:eams/router/routers.dart';
+import 'package:eams/views/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:eams_app/views/tabs/tabs.dart';
-import 'package:eams_app/views/login/controller/login_controller.dart';
-import 'package:eams_app/api/user.dart';
-import 'package:eams_app/views/tabs/controller/tab_controller.dart';
+import 'package:eams/views/tabs/tabs.dart';
+import 'package:eams/views/login/controller/login_controller.dart';
+import 'package:eams/api/user.dart';
+import 'package:eams/views/tabs/controller/tab_controller.dart';
 
 class LoginPage extends StatelessWidget {
   LoginController loginController = Get.put(LoginController());

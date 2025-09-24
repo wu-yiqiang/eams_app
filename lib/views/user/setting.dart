@@ -1,4 +1,4 @@
-import 'package:eams_app/views/user/controller/app_setting_controller.dart';
+import 'package:eams/views/user/controller/app_setting_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/svg.dart';
