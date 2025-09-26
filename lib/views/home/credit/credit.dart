@@ -10,84 +10,235 @@ class CreditPage extends StatelessWidget {
       appBar: AppBar(title: Text("帐户余额")),
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.all(10),
-          child: Stack(
+          padding: EdgeInsets.only(top: 0, left: 10, right: 10, bottom: 10),
+          child: Column(
             children: [
               Container(
-                width: double.infinity,
-                padding: EdgeInsets.all(14),
-                height: 240,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/images/credit.png'),
-                    fit: BoxFit.fitWidth,
-                  ),
-                  borderRadius: BorderRadius.circular(6),
-                ),
-                child: Column(
+                margin: EdgeInsets.only(bottom: 10),
+                child: Stack(
+                  alignment: Alignment.center,
                   children: [
-                    Row(
-                      children: [
-                        Text(
-                          "帐户余额(RMB)",
-                          style: TextStyle(color: Colors.white, fontSize: 18),
+                    Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.all(14),
+                      height: 240,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('assets/images/credit.png'),
+                          fit: BoxFit.fitWidth,
                         ),
-                        Obx(
-                          () => IconButton(
-                            icon: Icon(
-                              creditController.visible.value
-                                  ? Icons.visibility
-                                  : Icons.visibility_off,
-                            ),
-                            color: Colors.white,
-                            onPressed: () {
-                              if (creditController.visible.value) {
-                                creditController.setVisible(false);
-                              } else {
-                                creditController.setVisible(true);
-                              }
-                            },
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                "帐户余额(RMB)",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                ),
+                              ),
+                              Obx(
+                                () => IconButton(
+                                  icon: Icon(
+                                    creditController.visible.value
+                                        ? Icons.visibility
+                                        : Icons.visibility_off,
+                                  ),
+                                  color: Colors.white,
+                                  onPressed: () {
+                                    if (creditController.visible.value) {
+                                      creditController.setVisible(false);
+                                    } else {
+                                      creditController.setVisible(true);
+                                    }
+                                  },
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
-                      ],
+                          Row(
+                            children: [
+                              Obx(
+                                () => Text(
+                                  creditController.visible.value
+                                      ? creditController.credit.value.toString()
+                                      : "******",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
-                    Row(
-                      children: [
-                        Obx(
-                          () => Text(
-                            creditController.visible.value
-                                ? creditController.credit.value.toString()
-                                : "******",
-                            style: TextStyle(color: Colors.white, fontSize: 18),
+                    Positioned(
+                      right: 0,
+                      top: 30,
+                      child: Container(
+                        padding: EdgeInsets.all(4),
+                        decoration: BoxDecoration(
+                          color: Colors.white38,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(14),
+                            topRight: Radius.circular(0),
+                            bottomLeft: Radius.circular(14),
+                            bottomRight: Radius.circular(0),
                           ),
                         ),
-                      ],
+                        child: Text(
+                          "查看充值记录",
+                          style: TextStyle(
+                            color: Colors.white70,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 30,
+                      child: Flex(
+                        direction: Axis.horizontal,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        spacing: 30,
+                        children: [
+                          OutlinedButton(
+                            child: Text("充值"),
+                            style: ButtonStyle(
+                              foregroundColor: WidgetStateProperty.all(
+                                Colors.white,
+                              ),
+                              shape: WidgetStateProperty.all(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(4),
+                                ),
+                              ),
+                            ),
+                            onPressed: () {},
+                          ),
+                          OutlinedButton(
+                            child: Text("提现"),
+                            style: ButtonStyle(
+                              foregroundColor: WidgetStateProperty.all(
+                                Colors.white,
+                              ),
+                              shape: WidgetStateProperty.all(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(4),
+                                ),
+                              ),
+                            ),
+                            onPressed: () {},
+                          ),
+                          OutlinedButton(
+                            child: Text("兑付"),
+                            style: ButtonStyle(
+                              foregroundColor: WidgetStateProperty.all(
+                                Colors.white,
+                              ),
+                              shape: WidgetStateProperty.all(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(4),
+                                ),
+                              ),
+                            ),
+                            onPressed: () {},
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
-                
               ),
-              Positioned(
-                right: 0,
-                top: 30,
-                child: Container(
-                  padding: EdgeInsets.all(4),
-                  decoration: BoxDecoration(
-                    color: Colors.white38,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(14),
-                      topRight: Radius.circular(0),
-                      bottomLeft: Radius.circular(14),
-                      bottomRight: Radius.circular(0),
-                    ),
-                  ),
-                  child: Text(
-                    "查看历史记录",
-                    style: TextStyle(
-                      color: Colors.white70,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    spacing: 10,
+                    children: [
+                      ...creditController.recordLists.map((v) {
+                        return Container(
+                          decoration: BoxDecoration(
+                            color: Color.fromRGBO(219, 219, 219, 0.298),
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(4),
+                            ),
+                          ),
+                          padding: EdgeInsets.all(10),
+                          height: 64,
+                          child: Column(
+                            children: [
+                              Flex(
+                                direction: Axis.horizontal,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    v['menu'],
+                                    style: TextStyle(
+                                      color: const Color.fromARGB(
+                                        255,
+                                        44,
+                                        44,
+                                        44,
+                                      ),
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  Text(
+                                    '-¥ ${v['price'].toString()}',
+                                    style: TextStyle(
+                                      color: const Color.fromARGB(
+                                        255,
+                                        243,
+                                        60,
+                                        60,
+                                      ),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Flex(
+                                direction: Axis.horizontal,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    v['location'],
+                                    style: TextStyle(
+                                      color: Colors.green,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  Text(
+                                    v['date'],
+                                    style: TextStyle(
+                                      color: const Color.fromARGB(
+                                        255,
+                                        155,
+                                        154,
+                                        154,
+                                      ),
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        );
+                      }),
+                    ],
                   ),
                 ),
               ),
