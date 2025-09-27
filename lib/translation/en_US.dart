@@ -6,5 +6,6 @@ final Map<String, String> en_US = {
   'user': "User",
   'changeSettingTips': "System setting is changed, Need to restart",
   'confirm': "Confirm",
-  'cancel': "Cancel"
+  'cancel': "Cancel",
+  'personnelCenter': 'Personnel Center'
 };

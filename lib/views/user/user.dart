@@ -6,7 +6,11 @@ import 'package:get/get.dart';
 
 class UserPage extends StatelessWidget {
   final items = [
-    {"icon": 'person', "label": '个人中心', "path": routerMap['PERSON']},
+    {
+      "icon": 'person',
+      "label": 'personnelCenter'.tr,
+      "path": routerMap['PERSON'],
+    },
     {"icon": 'setting', "label": '偏好设置', "path": routerMap['SETTING']},
     {"icon": 'setting', "label": '隐私协议', "path": routerMap['POLICY']},
     {"icon": 'explore', "label": '操作指引', "path": routerMap['GUIDE']},

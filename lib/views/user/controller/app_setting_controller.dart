@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:get/get.dart';
 import 'dart:ui';
 import 'package:get_storage/get_storage.dart';
@@ -8,7 +10,7 @@ class AppSettingController extends GetxController {
     'language': 'en',
     'country': 'US',
     'theme': '',
-    'mode': ''
+    'mode': '',
   });
   void setAppSetting(String key, String value) {
     appSetting.value[key] = value;

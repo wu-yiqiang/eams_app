@@ -6,5 +6,6 @@ final Map<String, String> zh_CN =  {
   'user': "用户",
   'changeSettingTips': "系统设置已经被修改，需要重启生效。",
   'confirm': "确定",
-  'cancel': "取消"
+  'cancel': "取消",
+  'personnelCenter': '个人中心'
 };

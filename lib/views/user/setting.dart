@@ -1,45 +1,113 @@
 import 'package:eams/views/user/controller/app_setting_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_svg/svg.dart';
 
 class SettingPage extends StatelessWidget {
   AppSettingController appSettingController = Get.put(AppSettingController());
+  //     appSettingController.changeLanguage('en', 'US');
 
   @override
   Widget build(BuildContext context) {
+    Future<void> changeLanguage() async {
+      int? i = await showDialog<int>(
+        context: context,
+        builder: (BuildContext context) {
+          return SimpleDialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(6)),
+            ),
+            title: const Text('请选择语言'),
+            children: <Widget>[
+              SimpleDialogOption(
+                onPressed: () {
+                  Navigator.pop(context, 1);
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 6),
+                  child: Column(
+                    children: [
+                      RadioListTile<String>(
+                        title: const Text('中文简体'),
+                        value: 'zh',
+                        groupValue:appSettingController
+                                .getAppSystemKeyValue('language'),
+                        onChanged: (String? value) {
+                          appSettingController.changeLanguage('zh', 'CN');
+                        },
+                      ),
+                      RadioListTile<String>(
+                        title: const Text('English'),
+                        value: 'en',
+                        groupValue: appSettingController.getAppSystemKeyValue(
+                          'language',
+                        ),
+                        onChanged: (String? value) {
+                          appSettingController.changeLanguage('en', 'US');
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          );
+        },
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(title: Text("偏好设置")),
       body: SafeArea(
         child: Column(
           children: [
             Container(
-              margin: EdgeInsets.only(top: 30, bottom: 30),
-              child: Row(
+              padding: EdgeInsetsGeometry.all(10),
+              child: Column(
                 children: [
-                  TextButton(
-                    child: Text("login".tr),
-                    onPressed: () {
-                      appSettingController.changeLanguage('zh', 'CN');
-                      Get.defaultDialog(
-                        title: '',
-                        middleText: 'changeSettingTips'.tr,
-                        radius: 6,
-                        barrierDismissible: false,
-                        confirm: TextButton(
-                          onPressed: () {
-                            Get.back();
-                          },
-                          child: Text('confirm'.tr),
+                  InkWell(
+                    onTap: () {
+                      changeLanguage();
+                    },
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border: Border(
+                                bottom: BorderSide(
+                                  width: 1,
+                                  color: const Color.fromARGB(
+                                    255,
+                                    181,
+                                    181,
+                                    181,
+                                  ),
+                                ),
+                              ),
+                              color: const Color.fromARGB(250, 250, 250, 250),
+                            ),
+                            child: Flex(
+                              direction: Axis.horizontal,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.all(6),
+                                  child: Row(
+                                    spacing: 4,
+                                    children: [Text('语言')],
+                                  ),
+                                ),
+                                Text(
+                                  appSettingController.getAppSystemKeyValue(
+                                    'language',
+                                  )!,
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
-                      );
-                    },
-                  ),
-                  TextButton(
-                    child: Text("login".tr),
-                    onPressed: () {
-                      appSettingController.changeLanguage('en', 'US');
-                    },
+                      ],
+                    ),
                   ),
                 ],
               ),
