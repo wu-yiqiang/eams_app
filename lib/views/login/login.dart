@@ -1,9 +1,7 @@
 import 'package:eams/common/const.dart';
 import 'package:eams/router/routers.dart';
-import 'package:eams/views/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:eams/views/tabs/tabs.dart';
 import 'package:eams/views/login/controller/login_controller.dart';
 import 'package:eams/api/user.dart';
 import 'package:eams/views/tabs/controller/tab_controller.dart';

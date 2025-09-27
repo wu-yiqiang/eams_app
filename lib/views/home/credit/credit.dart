@@ -1,6 +1,8 @@
+import 'package:eams/router/routers.dart';
 import 'package:eams/views/home/credit/credit_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 
 class CreditPage extends StatelessWidget {
   CreditController creditController = Get.put(CreditController());
@@ -80,25 +82,29 @@ class CreditPage extends StatelessWidget {
                     Positioned(
                       right: 0,
                       top: 30,
-                      child: Container(
-                        padding: EdgeInsets.all(4),
-                        decoration: BoxDecoration(
-                          color: Colors.white38,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(14),
-                            topRight: Radius.circular(0),
-                            bottomLeft: Radius.circular(14),
-                            bottomRight: Radius.circular(0),
+                      child: OutlinedButton(
+                        style: OutlinedButton.styleFrom(
+                          backgroundColor: Colors.white60,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(15),
+                              bottomLeft: Radius.circular(15),
+                            ),
+                            side: BorderSide(color: Colors.white60, width: 0),
                           ),
+                          textStyle: TextStyle(color: Colors.white)
                         ),
                         child: Text(
                           "查看充值记录",
                           style: TextStyle(
                             color: Colors.white70,
-                            fontSize: 16,
+                            fontSize: 14,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
+                        onPressed: () {
+                          Get.toNamed(routerMap['PAYPAL']!);
+                        },
                       ),
                     ),
                     Positioned(
