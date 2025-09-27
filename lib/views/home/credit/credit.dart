@@ -87,8 +87,8 @@ class CreditPage extends StatelessWidget {
                           backgroundColor: Colors.white60,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(15),
-                              bottomLeft: Radius.circular(15),
+                              topLeft: Radius.circular(20),
+                              bottomLeft: Radius.circular(20),
                             ),
                             side: BorderSide(color: Colors.white60, width: 0),
                           ),
