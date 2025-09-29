@@ -22,7 +22,7 @@ class CreditPage extends StatelessWidget {
                   children: [
                     Container(
                       width: double.infinity,
-                      padding: EdgeInsets.all(14),
+                      padding: EdgeInsetsGeometry.all(14),
                       height: 240,
                       decoration: BoxDecoration(
                         image: DecorationImage(
