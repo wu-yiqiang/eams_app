@@ -24,12 +24,18 @@ class PersonPage extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  margin: EdgeInsets.only(top: 20),
-                  child: SizedBox(
-                    height: 150,
-                    width: 150,
-                    child: CircleAvatar(
-                      backgroundImage: AssetImage("assets/images/avatar.jpeg"),
+                  width: 150,
+                  height: 150,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      image: AssetImage("assets/images/avatar.jpeg"),
+                      fit: BoxFit.cover,
+                      alignment: Alignment(
+                        0,
+                        -0.5,
+                      ), // 类似 object-position: center 25%
+
                     ),
                   ),
                 ),
@@ -48,7 +54,7 @@ class PersonPage extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        "Sutter",
+                        "张三",
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
