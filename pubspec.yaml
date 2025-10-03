@@ -37,6 +37,8 @@ dependencies:
   dio: ^5.4.0
   get_storage: ^2.1.1
   pdfx: ^2.9.2
+  chewie: ^1.13.0
+  video_player: ^2.10.0
   # webview_flutter: ^4.13.0
 
 dev_dependencies:

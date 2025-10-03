@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:eams/components/video_view.dart';
 
 class TrainingPage extends StatelessWidget {
+  final String cover = 'sdsd';
+  late String url =
+      'https://stream7.iqilu.com/10339/upload_transcode/202002/18/20200218114723HDu3hhxqIT.mp4';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,10 +15,8 @@ class TrainingPage extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              width: 120,
-              height: 120,
-              margin: EdgeInsets.only(top: 30, bottom: 30),
-              child: Text("培训"),
+              padding: EdgeInsets.only(left: 10, right: 10),
+              child: VideoView(url = url, cover: cover),
             ),
           ],
         ),
