@@ -15,6 +15,7 @@ import "package:eams/views/portal/punish/punish.dart";
 import "package:eams/views/portal/reward/reward.dart";
 import "package:eams/views/portal/salary-adjust/salary-adjust.dart";
 import "package:eams/views/portal/todo/todoDetail.dart";
+import "package:eams/views/portal/training/course.dart";
 import "package:eams/views/portal/training/training.dart";
 import "package:eams/views/portal/useds/useds.dart";
 import "package:eams/views/user/guide.dart";
@@ -57,7 +58,8 @@ final routerMap = <String, String>{
   "GUIDE": '/guide',
   "CREDIT": '/credit',
   "CHARGE": '/charge',
-  "PAYPAL": '/paypal'
+  "PAYPAL": '/paypal',
+  "COURSE": '/course'
 };
 
 abstract class AppPages {
@@ -174,6 +176,10 @@ abstract class AppPages {
       name: routerMap['PAYPAL']!,
       page: () => beforeRouter(routerMap['PAYPAL']!),
     ),
+    GetPage(
+      name: routerMap['COURSE']!,
+      page: () => beforeRouter(routerMap['COURSE']!),
+    ),
   ];
 }
 
@@ -210,5 +216,6 @@ Widget beforeRouter(String pageName) {
   if (pageName == routerMap['CREDIT']!) return CreditPage();
   if (pageName == routerMap['CHARGE']!) return ChargePage();
   if (pageName == routerMap['PAYPAL']!) return PaypalPage();
+  if (pageName == routerMap['COURSE']!) return CoursePage();
   return HomePage();
 }
