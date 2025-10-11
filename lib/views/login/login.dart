@@ -42,9 +42,9 @@ class LoginPage extends StatelessWidget {
                         child: TextFormField(
                           keyboardType: TextInputType.text,
                           initialValue:
-                              loginController.LoginForm.value['email']!,
+                              loginController.LoginForm.value['username']!,
                           onChanged: (value) {
-                            loginController.setLoginForm('email', value);
+                            loginController.setLoginForm('username', value);
                           },
                           decoration: InputDecoration(
                             labelText: "帐号",
