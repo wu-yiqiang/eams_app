@@ -119,10 +119,11 @@ class LoginPage extends StatelessWidget {
                     icon: Icon(Icons.login),
                     label: Text('login'.tr),
                     onPressed: () async {
-                      final data = await UserApi.login(
+                      final {'data': data} = await UserApi.login(
                         loginController.getLoginForm().value,
                       );
                       print("登录数据${data}");
+                      // appSettingStorage.write('appSetting', getAppSystem())
                       Get.toNamed(routerMap['TABS']!);
                       tabsController.setCurrent(0);
                     },
