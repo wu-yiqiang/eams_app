@@ -15,6 +15,7 @@ void main() async {
       locale: Locale('en', "US"), //设置默认语言
       translations: Language(),
       initialBinding: AllControllerBinding(),
+      theme: ThemeData(primaryColor: Colors.white),
     ),
   );
 }

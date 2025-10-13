@@ -100,7 +100,7 @@ class SettingPage extends StatelessWidget {
                                 Text(
                                   appSettingController.getAppSystemKeyValue(
                                     'language',
-                                  )!,
+                                  ),
                                 ),
                               ],
                             ),

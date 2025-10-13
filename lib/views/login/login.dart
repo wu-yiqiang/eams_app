@@ -123,7 +123,6 @@ class LoginPage extends StatelessWidget {
                         loginController.getLoginForm().value,
                       );
                       print("登录数据${data}");
-                      // appSettingStorage.write('appSetting', getAppSystem())
                       Get.toNamed(routerMap['TABS']!);
                       tabsController.setCurrent(0);
                     },

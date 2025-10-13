@@ -3,30 +3,25 @@ import 'dart:ui';
 import 'package:get_storage/get_storage.dart';
 
 class AppSettingController extends GetxController {
-  final appSettingStorage = GetStorage('AppSetting');
-  final appSetting = Rx<Map<String, String>>({
-    'language': 'en',
-    'country': 'US',
-    'theme': '',
-    'mode': '',
-  });
+  final appSettingStorage = GetStorage();
+  final settings = <String, String>{
+    "language": "en",
+    "country": "US",
+    "theme": "",
+    "mode": "",
+  };
   void setAppSetting(String key, String value) {
-    appSetting.value[key] = value;
+    appSettingStorage.write(key, value);
   }
 
-  Rx<Map<String, String>> getAppSystem() {
-    return appSetting;
-  }
-
-  String? getAppSystemKeyValue(String key) {
-    return appSetting.value[key];
+  String getAppSystemKeyValue(String key) {
+    return appSettingStorage.read(key);
   }
 
   void changeLanguage(String languageCode, String countryCode) async {
     var locale = Locale(languageCode, countryCode);
     setAppSetting('language', languageCode);
     setAppSetting('country', countryCode);
-    // appSettingStorage.write('appSetting', getAppSystem());
     Get.updateLocale(locale);
   }
 }
