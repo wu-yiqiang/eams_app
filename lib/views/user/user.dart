@@ -46,7 +46,7 @@ class UserPage extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          appSettingController.getAppSystemKeyValue('name'),
+                          appSettingController.getAppSystemKeyValue('nick_name'),
                           style: TextStyle(fontSize: 18),
                         ),
                       ],

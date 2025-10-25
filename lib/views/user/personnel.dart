@@ -1,8 +1,10 @@
+import 'package:eams/views/user/controller/app_setting_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/svg.dart';
 
 class PersonPage extends StatelessWidget {
+  AppSettingController appSettingController = Get.put(AppSettingController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,13 +31,14 @@ class PersonPage extends StatelessWidget {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
-                      image: AssetImage("assets/images/avatar.jpeg"),
+                      image: NetworkImage(
+                        appSettingController.getAppSystemKeyValue('avatar'),
+                      ),
                       fit: BoxFit.cover,
                       alignment: Alignment(
                         0,
                         -0.5,
                       ), // 类似 object-position: center 25%
-
                     ),
                   ),
                 ),
@@ -54,7 +57,7 @@ class PersonPage extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        "张三",
+                        appSettingController.getAppSystemKeyValue('name'),
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
@@ -78,7 +81,10 @@ class PersonPage extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        "系统二部",
+                        appSettingController.getAppSystemKeyValue(
+                          'department_name',
+                        ),
+
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
@@ -102,7 +108,9 @@ class PersonPage extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        "网络工程师",
+                        appSettingController.getAppSystemKeyValue(
+                          'position_name',
+                        ),
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
@@ -126,7 +134,9 @@ class PersonPage extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        "2024-05-07",
+                        appSettingController.getAppSystemKeyValue(
+                          'employ_date',
+                        ),
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,

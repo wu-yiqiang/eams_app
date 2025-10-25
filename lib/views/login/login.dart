@@ -125,8 +125,12 @@ class LoginPage extends StatelessWidget {
                       );
                       final GetStorage storageBox = GetStorage();
                       storageBox.write('email', data['email']);
+                      storageBox.write('avatar', data['avatar']);
                       storageBox.write('name', data['name']);
                       storageBox.write('nick_name', data['nick_name']);
+                      storageBox.write('department_name', data['department_name']);
+                      storageBox.write('position_name', data['position_name']);
+                      storageBox.write('employ_date', data['employ_date']);
                       Get.toNamed(routerMap['TABS']!);
                       tabsController.setCurrent(0);
                     },
