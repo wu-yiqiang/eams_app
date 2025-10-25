@@ -39,6 +39,7 @@ dependencies:
   pdfx: ^2.9.2
   chewie: ^1.13.0
   video_player: ^2.10.0
+  flutter_easyloading: ^3.0.5
   # webview_flutter: ^4.13.0
 
 dev_dependencies:

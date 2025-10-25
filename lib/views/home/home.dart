@@ -50,8 +50,8 @@ class HomePage extends StatelessWidget {
                           );
                         },
                         itemCount: 3,
+                        indicatorLayout: PageIndicatorLayout.SCALE,
                         pagination: SwiperPagination(),
-                        // control: SwiperControl(),
                       ),
                     ),
                   ),

@@ -8,4 +8,7 @@ class UserApi {
   static login(data) {
     return Request.post("/user/login", null, data);
   }
+  static logout() {
+    return Request.post("/user/logout", null, null);
+  }
 }

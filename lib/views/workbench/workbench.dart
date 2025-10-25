@@ -32,8 +32,8 @@ class WorkbenchPage extends StatelessWidget {
             }).toList(),
             isScrollable: true,
             tabAlignment: TabAlignment.start,
-            indicatorColor: orangeTheme,
-            labelColor: orangeTheme,
+            indicatorColor: primaryTheme,
+            labelColor: primaryTheme,
           ),
         ),
         body: SafeArea(

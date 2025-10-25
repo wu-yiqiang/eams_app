@@ -1,3 +1,4 @@
+import 'package:eams/store/store.dart';
 import 'package:eams/views/user/controller/app_setting_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -32,7 +33,9 @@ class PersonPage extends StatelessWidget {
                     shape: BoxShape.circle,
                     image: DecorationImage(
                       image: NetworkImage(
-                        appSettingController.getAppSystemKeyValue('avatar'),
+                        appSettingController.getAppSystemKeyValue(
+                          userStoreKeys['AVATAR']!,
+                        ),
                       ),
                       fit: BoxFit.cover,
                       alignment: Alignment(
@@ -57,7 +60,9 @@ class PersonPage extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        appSettingController.getAppSystemKeyValue('name'),
+                        appSettingController.getAppSystemKeyValue(
+                          userStoreKeys['NAME']!,
+                        ),
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
@@ -82,7 +87,7 @@ class PersonPage extends StatelessWidget {
                       ),
                       Text(
                         appSettingController.getAppSystemKeyValue(
-                          'department_name',
+                           userStoreKeys['DEPARTMENTNAME']!,
                         ),
 
                         style: TextStyle(
@@ -109,7 +114,7 @@ class PersonPage extends StatelessWidget {
                       ),
                       Text(
                         appSettingController.getAppSystemKeyValue(
-                          'position_name',
+                          userStoreKeys['POSITIONNAME']!,
                         ),
                         style: TextStyle(
                           fontSize: 18,
@@ -135,7 +140,7 @@ class PersonPage extends StatelessWidget {
                       ),
                       Text(
                         appSettingController.getAppSystemKeyValue(
-                          'employ_date',
+                          userStoreKeys['EMPLOYDATE']!,
                         ),
                         style: TextStyle(
                           fontSize: 18,

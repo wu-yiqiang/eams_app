@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:eams/store/store.dart';
 import 'dart:convert';
 // import 'package:common_utils/common_utils.dart';
-// import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 //代码中 LogUtil 来自于 common_utils 插件，EasyLoading 来自于 flutter_easyloading 插件，可以根据自己的习惯替换。
 
 String StringifyUrlSearch(String path, Map search) {
@@ -38,8 +39,7 @@ class Request {
     headers: {
       'Accept': 'application/json, */*',
       'Content-Type': 'application/json',
-      "Authorization":
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDQ5MDc0MzYsIm5hbWUiOiJzdXR0ZXIiLCJpc3MiOiJhcHAiLCJuYmYiOjE3MDQ4NjMyMzZ9.qYGo0OspvaiJMYGMSdc1cCs0b62UL6lV1goVpbptG8c",
+      "Authorization": storeGetValue(userStoreKeys['TOKEN']!),
     },
     contentType: "application/json",
   );
@@ -53,7 +53,10 @@ class Request {
     Map? params,
     data,
   }) async {
-    // restful 请求处理
+    _dio.options.headers['Authorization'] = storeGetValue(
+      userStoreKeys['TOKEN']!,
+    );
+
     if (params != null) path = StringifyUrlSearch(path, params);
     // LogUtil.v(data, tag: '发送的数据为：');
     // (_dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate = (client) {
@@ -66,20 +69,23 @@ class Request {
     //     };
     // };
     try {
-      // EasyLoading.show(status: 'loading...');
-      print('请求$data');
+      EasyLoading.show(status: 'loading...');
       Response response = await _dio.request(
         path,
         data: data,
         options: Options(method: method),
       );
-      // EasyLoading.dismiss();
-      print('响应$response');
+      EasyLoading.dismiss();
       if (response.statusCode == 200 || response.statusCode == 201) {
         try {
           if (response.data['code'] != 200) {
             // LogUtil.v(response.data['status'], tag: '服务器错误，状态码为：');
-            // EasyLoading.showError('服务器错误，状态码为：${response.data['status']}');
+            print("出现错误");
+            EasyLoading.showError(
+              '${response.data['msg']}',
+              duration: Duration(seconds: 2),
+            );
+            
             return Future.error(response.data['msg']);
           } else {
             // LogUtil.v(response.data, tag: '响应的数据为：');
@@ -96,13 +102,12 @@ class Request {
         }
       } else {
         //  LogUtil.v(response.statusCode, tag: 'HTTP错误，状态码为：');
-        // EasyLoading.showError('HTTP错误，状态码为：${response.statusCode},');
         _handleHttpError(response.statusCode!);
         return Future.error('HTTP错误');
       }
     } on DioError catch (e, s) {
       // LogUtil.v(_dioError(e), tag: '请求异常');
-      // EasyLoading.showError(_dioError(e));
+      EasyLoading.showError(_dioError(e));
       return Future.error(_dioError(e));
     } catch (e, s) {
       // LogUtil.v(e, tag: '未知异常');
@@ -112,7 +117,6 @@ class Request {
 
   // 处理 Dio 异常
   static String _dioError(DioError error) {
-    print({"网络错误 error", error});
     switch (error.type) {
       case DioErrorType.CONNECT_TIMEOUT:
         return "网络连接超时，请检查网络设置";
@@ -133,7 +137,7 @@ class Request {
         return "网络异常，请稍后重试！";
         break;
       default:
-        return "Dio异常";
+        return "网络错误,请稍后重试";
     }
   }
 
@@ -184,8 +188,8 @@ class Request {
         message = 'HTTP版本不受支持';
         break;
       default:
-        message = '请求失败，错误码：$errorCode';
+        message = '请求失败';
     }
-    // EasyLoading.showError(message);
+    EasyLoading.showError(message, duration: Duration(seconds: 2));
   }
 }

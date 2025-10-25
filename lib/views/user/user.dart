@@ -1,9 +1,10 @@
+import 'package:eams/api/user.dart';
 import 'package:eams/common/const.dart';
 import 'package:eams/router/routers.dart';
+import 'package:eams/store/store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:eams/views/user/controller/app_setting_controller.dart';
 
 class UserPage extends StatelessWidget {
@@ -29,7 +30,7 @@ class UserPage extends StatelessWidget {
                 Expanded(
                   child: Container(
                     height: 200,
-                    color: orangeThemeOpcity,
+                    color: primaryTheme,
                     child: Flex(
                       direction: Axis.vertical,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -46,7 +47,9 @@ class UserPage extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          appSettingController.getAppSystemKeyValue('nick_name'),
+                          appSettingController.getAppSystemKeyValue(
+                            userStoreKeys['NICKNAME']!,
+                          ),
                           style: TextStyle(fontSize: 18),
                         ),
                       ],
@@ -120,13 +123,17 @@ class UserPage extends StatelessWidget {
                 children: [
                   Expanded(
                     child: ElevatedButton(
-                      onPressed: () {
-                        Get.toNamed(routerMap['LOGIN']!);
+                      onPressed: () async {
+                        try {
+                          await UserApi.logout();
+                          Get.toNamed(routerMap['LOGIN']!);
+                          storeClearAll();
+                        } catch (e) {}
                       },
                       child: Text("退出登录"),
                       style: ButtonStyle(
                         backgroundColor: WidgetStateProperty.all(
-                          orangeTheme,
+                          primaryTheme,
                         ), // 按扭背景颜色
                         foregroundColor: WidgetStateProperty.all(
                           Colors.white,

@@ -1,3 +1,4 @@
+import 'package:eams/store/store.dart';
 import 'package:eams/views/user/controller/app_setting_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -30,7 +31,9 @@ class SettingPage extends StatelessWidget {
                         title: const Text('中文简体'),
                         value: 'zh',
                         groupValue:appSettingController
-                                .getAppSystemKeyValue('language'),
+                                .getAppSystemKeyValue(
+                          settingStoreKeys['LANGUAGE']!,
+                        ),
                         onChanged: (String? value) {
                           appSettingController.changeLanguage('zh', 'CN');
                         },
@@ -39,7 +42,7 @@ class SettingPage extends StatelessWidget {
                         title: const Text('English'),
                         value: 'en',
                         groupValue: appSettingController.getAppSystemKeyValue(
-                          'language',
+                          settingStoreKeys['LANGUAGE']!,
                         ),
                         onChanged: (String? value) {
                           appSettingController.changeLanguage('en', 'US');
@@ -99,7 +102,7 @@ class SettingPage extends StatelessWidget {
                                 ),
                                 Text(
                                   appSettingController.getAppSystemKeyValue(
-                                    'language',
+                                    settingStoreKeys['LANGUAGE']!,
                                   ),
                                 ),
                               ],

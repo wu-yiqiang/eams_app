@@ -1,3 +1,4 @@
+import "package:eams/store/store.dart";
 import "package:eams/views/admin/assets/equipment/equipment.dart";
 import "package:eams/views/admin/assets/repair/repair.dart";
 import "package:eams/views/admin/assets/vehicle/vehicle.dart";
@@ -18,6 +19,7 @@ import "package:eams/views/portal/todo/todoDetail.dart";
 import "package:eams/views/portal/training/course.dart";
 import "package:eams/views/portal/training/training.dart";
 import "package:eams/views/portal/useds/useds.dart";
+import "package:eams/views/user/controller/app_setting_controller.dart";
 import "package:eams/views/user/guide.dart";
 import "package:eams/views/user/personnel.dart";
 import "package:eams/views/user/policy.dart";
@@ -59,7 +61,7 @@ final routerMap = <String, String>{
   "CREDIT": '/credit',
   "CHARGE": '/charge',
   "PAYPAL": '/paypal',
-  "COURSE": '/course'
+  "COURSE": '/course',
 };
 
 abstract class AppPages {
@@ -184,10 +186,9 @@ abstract class AppPages {
 }
 
 Widget beforeRouter(String pageName) {
-  // 路由拦截
-  // if (pageName == Routes.USER) {
-  //   return LoginPage();
-  // }
+  var token = storeGetValue(userStoreKeys['TOKEN']!);
+  print("pageName: $token");
+  if (token == null) return LoginPage();
   if (pageName == routerMap['TABS']!) return TabsPage();
   if (pageName == routerMap['HOME']!) return HomePage();
   if (pageName == routerMap['LOGIN']!) return LoginPage();

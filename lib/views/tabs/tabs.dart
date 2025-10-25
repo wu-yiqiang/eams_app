@@ -13,20 +13,20 @@ class TabsPage extends StatelessWidget {
     BottomNavigationBarItem(
       icon: Icon(Icons.home, color: Colors.black),
       label: 'home'.tr,
-      activeIcon: Icon(Icons.home, color: orangeTheme),
-      backgroundColor: orangeTheme,
+      activeIcon: Icon(Icons.home, color: primaryTheme),
+      backgroundColor: primaryTheme,
     ),
     BottomNavigationBarItem(
       icon: Icon(Icons.workspaces, color: Colors.black),
       label: 'workspace'.tr,
-      activeIcon: Icon(Icons.workspaces, color: orangeTheme),
-      backgroundColor: orangeTheme,
+      activeIcon: Icon(Icons.workspaces, color: primaryTheme),
+      backgroundColor: primaryTheme,
     ),
     BottomNavigationBarItem(
       icon: Icon(Icons.manage_accounts, color: Colors.black),
       label: 'user'.tr,
-      activeIcon: Icon(Icons.manage_accounts, color: orangeTheme),
-      backgroundColor: orangeTheme,
+      activeIcon: Icon(Icons.manage_accounts, color: primaryTheme),
+      backgroundColor: primaryTheme,
     ),
   ];
   @override
@@ -39,7 +39,7 @@ class TabsPage extends StatelessWidget {
         () => BottomNavigationBar(
           items: barItems,
           currentIndex: tabsController.currentIndex.toInt(),
-          selectedItemColor: orangeTheme,
+          selectedItemColor: primaryTheme,
           onTap: (index) {
             tabsController.setCurrent(index);
           },

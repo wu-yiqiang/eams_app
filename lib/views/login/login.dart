@@ -1,5 +1,6 @@
 import 'package:eams/common/const.dart';
 import 'package:eams/router/routers.dart';
+import 'package:eams/store/store.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:eams/views/login/controller/login_controller.dart';
@@ -85,7 +86,7 @@ class LoginPage extends StatelessWidget {
                   ElevatedButton.icon(
                     style: ButtonStyle(
                       backgroundColor: WidgetStateProperty.all(
-                        orangeTheme,
+                        primaryTheme,
                       ), // 按扭背景颜色
                       foregroundColor: WidgetStateProperty.all(
                         Colors.white,
@@ -99,14 +100,14 @@ class LoginPage extends StatelessWidget {
                     icon: Icon(Icons.login),
                     label: Text('register'.tr),
                     onPressed: () {
-                      Get.toNamed(routerMap['TABS']!);
-                      tabsController.setCurrent(0);
+                      // Get.toNamed(routerMap['TABS']!);
+                      // tabsController.setCurrent(0);
                     },
                   ),
                   ElevatedButton.icon(
                     style: ButtonStyle(
                       backgroundColor: WidgetStateProperty.all(
-                        orangeTheme,
+                        primaryTheme,
                       ), // 按扭背景颜色
                       foregroundColor: WidgetStateProperty.all(
                         Colors.white,
@@ -120,19 +121,15 @@ class LoginPage extends StatelessWidget {
                     icon: Icon(Icons.login),
                     label: Text('login'.tr),
                     onPressed: () async {
-                      final {'data': data} = await UserApi.login(
-                        loginController.getLoginForm().value,
-                      );
-                      final GetStorage storageBox = GetStorage();
-                      storageBox.write('email', data['email']);
-                      storageBox.write('avatar', data['avatar']);
-                      storageBox.write('name', data['name']);
-                      storageBox.write('nick_name', data['nick_name']);
-                      storageBox.write('department_name', data['department_name']);
-                      storageBox.write('position_name', data['position_name']);
-                      storageBox.write('employ_date', data['employ_date']);
-                      Get.toNamed(routerMap['TABS']!);
-                      tabsController.setCurrent(0);
+                      try {
+                        final {'data': data} = await UserApi.login(
+                          loginController.getLoginForm().value,
+                        );
+                        Get.snackbar('登录提示', "登录成功");
+                        storeSaveMap(userStoreKeys, data);
+                        tabsController.setCurrent(0);
+                        Get.toNamed(routerMap['TABS']!);
+                      } catch (e) {}
                     },
                   ),
                 ],
