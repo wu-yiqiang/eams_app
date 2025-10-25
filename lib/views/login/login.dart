@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:eams/views/login/controller/login_controller.dart';
 import 'package:eams/api/user.dart';
 import 'package:eams/views/tabs/controller/tab_controller.dart';
+import 'package:get_storage/get_storage.dart';
 
 class LoginPage extends StatelessWidget {
   LoginController loginController = Get.put(LoginController());
@@ -42,9 +43,9 @@ class LoginPage extends StatelessWidget {
                         child: TextFormField(
                           keyboardType: TextInputType.text,
                           initialValue:
-                              loginController.LoginForm.value['username']!,
+                              loginController.LoginForm.value['email']!,
                           onChanged: (value) {
-                            loginController.setLoginForm('username', value);
+                            loginController.setLoginForm('email', value);
                           },
                           decoration: InputDecoration(
                             labelText: "帐号",
@@ -122,7 +123,10 @@ class LoginPage extends StatelessWidget {
                       final {'data': data} = await UserApi.login(
                         loginController.getLoginForm().value,
                       );
-                      print("登录数据${data}");
+                      final GetStorage storageBox = GetStorage();
+                      storageBox.write('email', data['email']);
+                      storageBox.write('name', data['name']);
+                      storageBox.write('nick_name', data['nick_name']);
                       Get.toNamed(routerMap['TABS']!);
                       tabsController.setCurrent(0);
                     },

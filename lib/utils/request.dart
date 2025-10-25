@@ -4,11 +4,9 @@ import 'dart:convert';
 // import 'package:flutter_easyloading/flutter_easyloading.dart';
 //代码中 LogUtil 来自于 common_utils 插件，EasyLoading 来自于 flutter_easyloading 插件，可以根据自己的习惯替换。
 
-String StringifyUrlSearch(String path,Map search) {
-  String newPath = path+"?";
-  search.forEach((k,v) =>
-    newPath += '${k}=${v}&',
-  );
+String StringifyUrlSearch(String path, Map search) {
+  String newPath = path + "?";
+  search.forEach((k, v) => newPath += '${k}=${v}&');
   newPath = newPath.substring(0, newPath.length - 1);
   return newPath;
 }
@@ -29,29 +27,32 @@ enum DioErrorType {
   NO_INTERNET_CONNECTION,
   DEFAULT,
   RESPONSE,
-  RECEIVE_TIMEOUT
+  RECEIVE_TIMEOUT,
 }
 
-
 class Request {
-  // 配置 Dio 实例
   static BaseOptions _options = BaseOptions(
-    baseUrl: 'http://192.168.1.222:3366/',
+    baseUrl: 'http://192.168.1.222:9527/',
     connectTimeout: Duration(seconds: 30),
     receiveTimeout: Duration(seconds: 10),
     headers: {
       'Accept': 'application/json, */*',
       'Content-Type': 'application/json',
-      "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDQ5MDc0MzYsIm5hbWUiOiJzdXR0ZXIiLCJpc3MiOiJhcHAiLCJuYmYiOjE3MDQ4NjMyMzZ9.qYGo0OspvaiJMYGMSdc1cCs0b62UL6lV1goVpbptG8c"
+      "Authorization":
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDQ5MDc0MzYsIm5hbWUiOiJzdXR0ZXIiLCJpc3MiOiJhcHAiLCJuYmYiOjE3MDQ4NjMyMzZ9.qYGo0OspvaiJMYGMSdc1cCs0b62UL6lV1goVpbptG8c",
     },
     contentType: "application/json",
   );
 
   static Dio _dio = Dio(_options);
 
-
   // _request 是核心函数，所有的请求都会走这里
-  static Future<T> _request<T>(String path, {String? method, Map? params, data}) async {
+  static Future<T> _request<T>(
+    String path, {
+    String? method,
+    Map? params,
+    data,
+  }) async {
     // restful 请求处理
     if (params != null) path = StringifyUrlSearch(path, params);
     // LogUtil.v(data, tag: '发送的数据为：');
@@ -66,15 +67,20 @@ class Request {
     // };
     try {
       // EasyLoading.show(status: 'loading...');
-      Response response = await _dio.request(path,
-          data: data, options: Options(method: method));
+      print('请求$data');
+      Response response = await _dio.request(
+        path,
+        data: data,
+        options: Options(method: method),
+      );
       // EasyLoading.dismiss();
+      print('响应$response');
       if (response.statusCode == 200 || response.statusCode == 201) {
         try {
           if (response.data['code'] != 200) {
             // LogUtil.v(response.data['status'], tag: '服务器错误，状态码为：');
             // EasyLoading.showError('服务器错误，状态码为：${response.data['status']}');
-            return Future.error(response.data['message']);
+            return Future.error(response.data['msg']);
           } else {
             // LogUtil.v(response.data, tag: '响应的数据为：');
             if (response.data is Map) {
@@ -89,7 +95,7 @@ class Request {
           return Future.error('解析响应数据异常');
         }
       } else {
-       //  LogUtil.v(response.statusCode, tag: 'HTTP错误，状态码为：');
+        //  LogUtil.v(response.statusCode, tag: 'HTTP错误，状态码为：');
         // EasyLoading.showError('HTTP错误，状态码为：${response.statusCode},');
         _handleHttpError(response.statusCode!);
         return Future.error('HTTP错误');
@@ -99,7 +105,7 @@ class Request {
       // EasyLoading.showError(_dioError(e));
       return Future.error(_dioError(e));
     } catch (e, s) {
-     // LogUtil.v(e, tag: '未知异常');
+      // LogUtil.v(e, tag: '未知异常');
       return Future.error('未知异常');
     }
   }
@@ -130,8 +136,6 @@ class Request {
         return "Dio异常";
     }
   }
-
-
 
   static Future<T> get<T>(String path, Map<String, String>? params) {
     return _request(path, method: 'get', params: params);

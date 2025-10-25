@@ -3,8 +3,11 @@ import 'package:eams/router/routers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:eams/views/user/controller/app_setting_controller.dart';
 
 class UserPage extends StatelessWidget {
+  AppSettingController appSettingController = Get.put(AppSettingController());
   final items = [
     {
       "icon": 'person',
@@ -42,7 +45,10 @@ class UserPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Text("Sutter", style: TextStyle(fontSize: 18)),
+                        Text(
+                          appSettingController.getAppSystemKeyValue('name'),
+                          style: TextStyle(fontSize: 18),
+                        ),
                       ],
                     ),
                   ),

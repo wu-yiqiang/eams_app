@@ -21,7 +21,7 @@ import "package:eams/views/portal/useds/useds.dart";
 import "package:eams/views/user/guide.dart";
 import "package:eams/views/user/personnel.dart";
 import "package:eams/views/user/policy.dart";
-import "package:eams/views/user/setting.dart";
+import "package:eams/views/workbench/setting.dart";
 import "package:flutter/cupertino.dart";
 import "package:get/get.dart";
 import 'package:eams/views/tabs/tabs.dart';
