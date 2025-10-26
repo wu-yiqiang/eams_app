@@ -69,7 +69,7 @@ class SelfServicePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 144,
+      height: 150,
       margin: EdgeInsets.only(top: 10, bottom: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6),
@@ -84,8 +84,10 @@ class SelfServicePage extends StatelessWidget {
           return IconButton(
             padding: EdgeInsets.zero,
             alignment: Alignment.center,
-            icon: Column(
+            icon: Flex(
               spacing: 4,
+              direction: Axis.vertical,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SvgPicture.asset(v['icon'], width: 32, height: 32),
                 SizedBox(
