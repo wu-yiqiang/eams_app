@@ -24,5 +24,17 @@ final Map<String, String> en_US = {
   'department': "department",
   'position': "Position",
   'employDate': "Employ Date",
-  'emial': "Email"
+  'email': "Email",
+  'toDo': "To Do",
+  'attendance': "Attendance",
+  'travel': "Travel",
+  'overtime': "Overtime",
+  'vacation': "Vacation",
+  'fieldWork': "Field Work",
+  'training': "Training",
+  'salary': "Salary",
+  'reward': "Reward",
+  'punishment': "Punishment",
+  'ledger': "Ledger",
+  'contract': "Contract",
 };

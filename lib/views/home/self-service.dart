@@ -4,61 +4,65 @@ import 'package:flutter_svg/svg.dart';
 import 'package:eams/router/routers.dart';
 
 class SelfServicePage extends StatelessWidget {
-  final List selfServices = [
-    {"path": routerMap['TODO'], "label": "待办", "icon": "assets/svg/todo.svg"},
+  List selfServices = [
+    {
+      "path": routerMap['TODO'],
+      "label": "toDo".tr,
+      "icon": "assets/svg/todo.svg",
+    },
     {
       "path": routerMap['ATTENDANCE'],
-      "label": "考勤",
+      "label": "attendance".tr,
       "icon": "assets/svg/attendance.svg",
     },
     {
       "path": routerMap['BUSINESSTRIP'],
-      "label": "出差",
+      "label": "travel".tr,
       "icon": "assets/svg/travel.svg",
     },
     {
       "path": routerMap['OVERWORK'],
-      "label": "加班",
+      "label": "overtime".tr,
       "icon": "assets/svg/workOverTime.svg",
     },
     {
       "path": routerMap['HOLIDAY'],
-      "label": "休假",
+      "label": "vacation".tr,
       "icon": "assets/svg/holiday.svg",
     },
     {
       "path": routerMap['FIELDWORK'],
-      "label": "外勤",
+      "label": "fieldWork".tr,
       "icon": "assets/svg/fieldWork.svg",
     },
     {
       "path": routerMap['TRAINING'],
-      "label": "培训",
+      "label": "training".tr,
       "icon": "assets/svg/training.svg",
     },
     {
       "path": routerMap['SALARYADJUST'],
-      "label": "调岗调薪",
+      "label": "salary".tr,
       "icon": "assets/svg/salaryAdjust.svg",
     },
     {
       "path": routerMap['REWARD'],
-      "label": "奖励",
+      "label": "reward".tr,
       "icon": "assets/svg/reward.svg",
     },
     {
       "path": routerMap['PUNISH'],
-      "label": "处罚",
+      "label": "punishment".tr,
       "icon": "assets/svg/punish.svg",
     },
     {
       "path": routerMap['USEDS'],
-      "label": "领用记录",
+      "label": "ledger".tr,
       "icon": "assets/svg/useds.svg",
     },
     {
       "path": routerMap['CONTRACT'],
-      "label": "合同",
+      "label": "contract".tr,
       "icon": "assets/svg/contract.svg",
     },
   ];
@@ -74,16 +78,22 @@ class SelfServicePage extends StatelessWidget {
       child: GridView(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 5, //横轴三个子widget
-          childAspectRatio: 1.0, //宽高比为1时，子widget
+          // childAspectRatio: 1.0, //宽高比为1时，子widget
         ),
         children: selfServices.map((v) {
           return IconButton(
+            padding: EdgeInsets.zero,
+            alignment: Alignment.center,
             icon: Column(
               spacing: 4,
               children: [
-                SvgPicture.asset(v['icon'], width: 30, height: 30),
+                SvgPicture.asset(v['icon'], width: 32, height: 32),
                 SizedBox(
-                  child: Text(v['label'], style: TextStyle(fontSize: 12)),
+                  child: Text(
+                    v['label'],
+                    style: TextStyle(fontSize: 13),
+                    softWrap: true,
+                  ),
                 ),
               ],
             ),
