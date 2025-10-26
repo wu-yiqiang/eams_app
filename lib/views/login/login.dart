@@ -54,23 +54,36 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Container(
-                        child: TextFormField(
-                          keyboardType: TextInputType.emailAddress,
-                          initialValue:
-                              loginController.LoginForm.value['password']!,
+                      Obx(() {
+                        return Container(
+                          child: TextFormField(
+                            keyboardType: TextInputType.emailAddress,
+                            initialValue:
+                                loginController.LoginForm.value['password']!,
 
-                          onChanged: (value) {
-                            loginController.setLoginForm('password', value);
-                          },
-                          decoration: InputDecoration(
-                            labelText: "password".tr,
-                            hintText: "password".tr,
-                            prefixIcon: Icon(Icons.lock),
+                            onChanged: (value) {
+                              loginController.setLoginForm('password', value);
+                            },
+                            decoration: InputDecoration(
+                              labelText: "password".tr,
+                              hintText: "password".tr,
+                              prefixIcon: Icon(Icons.lock),
+                              suffixIcon: IconButton(
+                                icon: Icon(
+                                  loginController.visible.value
+                                      ? Icons.visibility_off 
+                                      : Icons.visibility,
+                                ),
+                                onPressed: () {
+                                  loginController.visible.value =
+                                      !loginController.visible.value;
+                                },
+                              ),
+                            ),
+                            obscureText: loginController.visible.value,
                           ),
-                          obscureText: true,
-                        ),
-                      ),
+                        );
+                      }),
                     ],
                   ),
                 ),
@@ -124,7 +137,11 @@ class LoginPage extends StatelessWidget {
                         final {'data': data} = await UserApi.login(
                           loginController.getLoginForm().value,
                         );
-                        Get.snackbar("loginTipsTitle".tr, "loginTipsMessage".tr, duration: Duration(seconds: 2));
+                        Get.snackbar(
+                          "loginTipsTitle".tr,
+                          "loginTipsMessage".tr,
+                          duration: Duration(seconds: 2),
+                        );
                         storeSaveMap(userStoreKeys, data);
                         tabsController.setCurrent(0);
                         Get.toNamed(routerMap['TABS']!);

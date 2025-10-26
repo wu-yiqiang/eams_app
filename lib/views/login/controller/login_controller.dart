@@ -3,11 +3,13 @@ import 'package:get/get.dart';
 class LoginController extends GetxController {
   final LoginForm = Rx<Map<String, String>>({
     'email': 'sutter.wu@itforce-tech.com',
-    'password': '1234@Abcd'
+    'password': '1234@Abcd',
   });
+  RxBool visible = true.obs;
   void setLoginForm(String key, String value) {
     LoginForm.value[key] = value;
   }
+
   // RxString getLoginFormField(String key) {
   //   return LoginForm.get(key)!;
   // }
