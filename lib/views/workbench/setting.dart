@@ -5,8 +5,7 @@ import 'package:get/get.dart';
 
 class SettingPage extends StatelessWidget {
   AppSettingController appSettingController = Get.put(AppSettingController());
-  //     appSettingController.changeLanguage('en', 'US');
-
+  final languageKeys = <String, String>{"zh": "简体中文", "en": "English"};
   @override
   Widget build(BuildContext context) {
     Future<void> changeLanguage() async {
@@ -17,21 +16,20 @@ class SettingPage extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(6)),
             ),
-            title: const Text('请选择语言'),
+            // title: Text('languageChange'.tr),
             children: <Widget>[
               SimpleDialogOption(
                 onPressed: () {
                   Navigator.pop(context, 1);
                 },
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 6),
+                  padding: const EdgeInsets.symmetric(vertical: 0),
                   child: Column(
                     children: [
                       RadioListTile<String>(
-                        title: const Text('中文简体'),
+                        title: Text(languageKeys["zh"]!),
                         value: 'zh',
-                        groupValue:appSettingController
-                                .getAppSystemKeyValue(
+                        groupValue: appSettingController.getAppSystemKeyValue(
                           settingStoreKeys['LANGUAGE']!,
                         ),
                         onChanged: (String? value) {
@@ -39,7 +37,7 @@ class SettingPage extends StatelessWidget {
                         },
                       ),
                       RadioListTile<String>(
-                        title: const Text('English'),
+                        title: Text(languageKeys["en"]!),
                         value: 'en',
                         groupValue: appSettingController.getAppSystemKeyValue(
                           settingStoreKeys['LANGUAGE']!,
@@ -59,7 +57,7 @@ class SettingPage extends StatelessWidget {
     }
 
     return Scaffold(
-      appBar: AppBar(title: Text("偏好设置")),
+      appBar: AppBar(title: Text('preferences'.tr)),
       body: SafeArea(
         child: Column(
           children: [
@@ -97,13 +95,14 @@ class SettingPage extends StatelessWidget {
                                   padding: EdgeInsets.all(6),
                                   child: Row(
                                     spacing: 4,
-                                    children: [Text('语言')],
+                                    children: [Text("language".tr)],
                                   ),
                                 ),
                                 Text(
-                                  appSettingController.getAppSystemKeyValue(
-                                    settingStoreKeys['LANGUAGE']!,
-                                  ),
+                                  languageKeys[appSettingController
+                                      .getAppSystemKeyValue(
+                                        settingStoreKeys['LANGUAGE']!,
+                                      )]!,
                                 ),
                               ],
                             ),

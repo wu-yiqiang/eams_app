@@ -12,7 +12,7 @@ class NoticesPage extends StatelessWidget {
         borderRadius: BorderRadius.circular(6),
       ),
       margin: EdgeInsets.only(top: 20),
-      child: Row(children: [Text("通知中心")]),
+      child: Row(children: [Text("notification".tr)]),
     );
   }
 }

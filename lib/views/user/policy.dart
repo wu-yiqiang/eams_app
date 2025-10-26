@@ -6,7 +6,7 @@ class PolicyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("隐私协议")),
+      appBar: AppBar(title: Text("privacyPolicy".tr)),
       body: SafeArea(
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,

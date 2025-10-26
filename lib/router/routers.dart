@@ -187,7 +187,6 @@ abstract class AppPages {
 
 Widget beforeRouter(String pageName) {
   var token = storeGetValue(userStoreKeys['TOKEN']!);
-  print("pageName: $token");
   if (token == null) return LoginPage();
   if (pageName == routerMap['TABS']!) return TabsPage();
   if (pageName == routerMap['HOME']!) return HomePage();

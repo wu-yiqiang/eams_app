@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 import 'package:eams/views/login/controller/login_controller.dart';
 import 'package:eams/api/user.dart';
 import 'package:eams/views/tabs/controller/tab_controller.dart';
-import 'package:get_storage/get_storage.dart';
 
 class LoginPage extends StatelessWidget {
   LoginController loginController = Get.put(LoginController());
@@ -49,8 +48,8 @@ class LoginPage extends StatelessWidget {
                             loginController.setLoginForm('email', value);
                           },
                           decoration: InputDecoration(
-                            labelText: "帐号",
-                            hintText: "帐号",
+                            labelText: "account".tr,
+                            hintText: "account".tr,
                             prefixIcon: Icon(Icons.person),
                           ),
                         ),
@@ -65,8 +64,8 @@ class LoginPage extends StatelessWidget {
                             loginController.setLoginForm('password', value);
                           },
                           decoration: InputDecoration(
-                            labelText: "密码",
-                            hintText: "密码",
+                            labelText: "password".tr,
+                            hintText: "password".tr,
                             prefixIcon: Icon(Icons.lock),
                           ),
                           obscureText: true,
@@ -125,7 +124,7 @@ class LoginPage extends StatelessWidget {
                         final {'data': data} = await UserApi.login(
                           loginController.getLoginForm().value,
                         );
-                        Get.snackbar('登录提示', "登录成功");
+                        Get.snackbar("loginTipsTitle".tr, "loginTipsMessage".tr, duration: Duration(seconds: 2));
                         storeSaveMap(userStoreKeys, data);
                         tabsController.setCurrent(0);
                         Get.toNamed(routerMap['TABS']!);

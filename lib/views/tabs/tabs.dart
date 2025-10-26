@@ -9,26 +9,6 @@ import "package:eams/common/const.dart";
 class TabsPage extends StatelessWidget {
   final TabsController tabsController = Get.put(TabsController());
   final pages = [HomePage(), WorkbenchPage(), UserPage()];
-  final barItems = [
-    BottomNavigationBarItem(
-      icon: Icon(Icons.home, color: Colors.black),
-      label: 'home'.tr,
-      activeIcon: Icon(Icons.home, color: primaryTheme),
-      backgroundColor: primaryTheme,
-    ),
-    BottomNavigationBarItem(
-      icon: Icon(Icons.workspaces, color: Colors.black),
-      label: 'workspace'.tr,
-      activeIcon: Icon(Icons.workspaces, color: primaryTheme),
-      backgroundColor: primaryTheme,
-    ),
-    BottomNavigationBarItem(
-      icon: Icon(Icons.manage_accounts, color: Colors.black),
-      label: 'user'.tr,
-      activeIcon: Icon(Icons.manage_accounts, color: primaryTheme),
-      backgroundColor: primaryTheme,
-    ),
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +17,26 @@ class TabsPage extends StatelessWidget {
       ),
       bottomNavigationBar: Obx(
         () => BottomNavigationBar(
-          items: barItems,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home, color: Colors.black),
+              label: 'home'.tr,
+              activeIcon: Icon(Icons.home, color: primaryTheme),
+              backgroundColor: primaryTheme,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.workspaces, color: Colors.black),
+              label: 'workspace'.tr,
+              activeIcon: Icon(Icons.workspaces, color: primaryTheme),
+              backgroundColor: primaryTheme,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.manage_accounts, color: Colors.black),
+              label: 'user'.tr,
+              activeIcon: Icon(Icons.manage_accounts, color: primaryTheme),
+              backgroundColor: primaryTheme,
+            ),
+          ],
           currentIndex: tabsController.currentIndex.toInt(),
           selectedItemColor: primaryTheme,
           onTap: (index) {

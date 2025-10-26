@@ -3,6 +3,8 @@ import 'package:eams/views/home/notices.dart';
 import 'package:flutter/material.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:eams/views/home/self-service.dart';
+import 'package:get/utils.dart';
+import 'package:get_storage/get_storage.dart';
 
 class HomePage extends StatelessWidget {
   List<Container> cards = [
@@ -23,7 +25,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("首页"),
+        title: Text('home'.tr),
         leading: null,
         automaticallyImplyLeading: false,
         backgroundColor: Colors.white,

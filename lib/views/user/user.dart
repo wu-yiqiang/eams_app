@@ -9,16 +9,6 @@ import 'package:eams/views/user/controller/app_setting_controller.dart';
 
 class UserPage extends StatelessWidget {
   AppSettingController appSettingController = Get.put(AppSettingController());
-  final items = [
-    {
-      "icon": 'person',
-      "label": 'personnelCenter'.tr,
-      "path": routerMap['PERSON'],
-    },
-    {"icon": 'setting', "label": '偏好设置', "path": routerMap['SETTING']},
-    {"icon": 'setting', "label": '隐私协议', "path": routerMap['POLICY']},
-    {"icon": 'explore', "label": '操作指引', "path": routerMap['GUIDE']},
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,7 +55,7 @@ class UserPage extends StatelessWidget {
                 color: Colors.white,
               ),
               child: Column(
-                children: items.map((item) {
+                children: appSettingController.menusItems.value.map((item) {
                   return InkWell(
                     onTap: () {
                       Get.toNamed(item['path']!);
@@ -102,7 +92,7 @@ class UserPage extends StatelessWidget {
                                         width: 20,
                                         height: 20,
                                       ),
-                                      Text(item['label']!),
+                                      Text(item['label']!.tr),
                                     ],
                                   ),
                                 ),
@@ -127,10 +117,10 @@ class UserPage extends StatelessWidget {
                         try {
                           await UserApi.logout();
                           Get.toNamed(routerMap['LOGIN']!);
-                          storeClearAll();
+                          storeClearValue(userStoreKeys["TOKEN"]!);
                         } catch (e) {}
                       },
-                      child: Text("退出登录"),
+                      child: Text('logout'.tr),
                       style: ButtonStyle(
                         backgroundColor: WidgetStateProperty.all(
                           primaryTheme,

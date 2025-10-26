@@ -12,7 +12,7 @@ class PersonPage extends StatelessWidget {
       appBar: AppBar(title: Text('personnelCenter'.tr)),
       body: SafeArea(
         child: Container(
-          padding: EdgeInsetsGeometry.all(10),
+          padding: EdgeInsetsGeometry.only(left: 10, right: 10),
           child: Container(
             width: double.infinity,
             padding: EdgeInsetsGeometry.all(20),
@@ -53,9 +53,9 @@ class PersonPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        "姓名: ",
+                        'name'.tr + ": ",
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -64,7 +64,7 @@ class PersonPage extends StatelessWidget {
                           userStoreKeys['NAME']!,
                         ),
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -79,9 +79,9 @@ class PersonPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        "部门: ",
+                        'department'.tr + ": ",
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -91,7 +91,7 @@ class PersonPage extends StatelessWidget {
                         ),
 
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -106,9 +106,9 @@ class PersonPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        "岗位: ",
+                        'position'.tr + ": ",
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -117,7 +117,7 @@ class PersonPage extends StatelessWidget {
                           userStoreKeys['POSITIONNAME']!,
                         ),
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -132,9 +132,35 @@ class PersonPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        "入职时间: ",
+                        'email'.tr + ": ",
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        appSettingController.getAppSystemKeyValue(
+                          userStoreKeys['EMAIL']!,
+                        ),
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 4, bottom: 4),
+                  child: Flex(
+                    direction: Axis.horizontal,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'employDate'.tr + ": ",
+                        style: TextStyle(
+                          fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -143,7 +169,7 @@ class PersonPage extends StatelessWidget {
                           userStoreKeys['EMPLOYDATE']!,
                         ),
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

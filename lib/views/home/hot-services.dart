@@ -43,7 +43,7 @@ class HotServicePage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(child: Text("热门精选"), margin: EdgeInsets.only(top: 10)),
+        Container(child: Text("popularPicks".tr), margin: EdgeInsets.only(top: 10)),
         Row(
           children: [
             Expanded(
@@ -54,14 +54,14 @@ class HotServicePage extends StatelessWidget {
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    spacing: 6,
+                    spacing: 0,
                     children: selfServices.map((v) {
                       return Container(
                         child: TextButton(
                           child: SvgPicture.asset(
                             v['icon'],
-                            width: 54,
-                            height: 54,
+                            width: 50,
+                            height: 50,
                           ),
                           onPressed: () => {Get.toNamed(v['path'])},
                         ),

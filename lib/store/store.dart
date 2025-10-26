@@ -12,14 +12,20 @@ final userStoreKeys = <String, String>{
 };
 
 final settingStoreKeys = <String, String>{
-  'LANGUAGE': "language",
-  'COUNTRY': "country",
+  "LANGUAGE": "language",
+  "COUNTRY": "country",
   "THEME": "theme",
 };
 
 void storeInit() {
-  storeSetValue(settingStoreKeys['LANGUAGE']!, 'en');
-  storeSetValue(settingStoreKeys['COUNTRY']!, 'US');
+  dynamic language = storeGetValue(settingStoreKeys['LANGUAGE']!);
+  dynamic country = storeGetValue(settingStoreKeys['COUNTRY']!);
+  if (language == null) {
+    storeSetValue(settingStoreKeys['LANGUAGE']!, 'en');
+  }
+  if (country == null) {
+    storeSetValue(settingStoreKeys['COUNTRY']!, 'US');
+  }
 }
 
 dynamic storeGetValue(String key) {
