@@ -5,7 +5,7 @@ class LoginController extends GetxController {
     'email': 'sutter.wu@itforce-tech.com',
     'password': '1234@Abcd',
   });
-  RxBool visible = true.obs;
+  RxBool hiddle = true.obs;
   void setLoginForm(String key, String value) {
     LoginForm.value[key] = value;
   }

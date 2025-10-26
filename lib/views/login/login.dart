@@ -70,17 +70,17 @@ class LoginPage extends StatelessWidget {
                               prefixIcon: Icon(Icons.lock),
                               suffixIcon: IconButton(
                                 icon: Icon(
-                                  loginController.visible.value
+                                  loginController.hiddle.value
                                       ? Icons.visibility_off 
                                       : Icons.visibility,
                                 ),
                                 onPressed: () {
-                                  loginController.visible.value =
-                                      !loginController.visible.value;
+                                  loginController.hiddle.value =
+                                      !loginController.hiddle.value;
                                 },
                               ),
                             ),
-                            obscureText: loginController.visible.value,
+                            obscureText: loginController.hiddle.value,
                           ),
                         );
                       }),
