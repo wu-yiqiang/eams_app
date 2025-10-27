@@ -69,11 +69,11 @@ class SelfServicePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 150,
+      height: 154,
       margin: EdgeInsets.only(top: 10, bottom: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6),
-        color: const Color.fromARGB(255, 255, 255, 255),
+        color: const Color.fromARGB(255, 82, 33, 33),
       ),
       child: GridView(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

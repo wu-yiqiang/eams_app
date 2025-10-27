@@ -38,6 +38,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 child: Form(
                   child: Column(
+                    spacing: 14,
                     children: [
                       Container(
                         child: TextFormField(
@@ -51,6 +52,12 @@ class LoginPage extends StatelessWidget {
                             labelText: "account".tr,
                             hintText: "account".tr,
                             prefixIcon: Icon(Icons.person),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(6),
+                              ),
+                              borderSide: BorderSide(width: 2.0),
+                            ),
                           ),
                         ),
                       ),
@@ -68,11 +75,17 @@ class LoginPage extends StatelessWidget {
                               labelText: "password".tr,
                               hintText: "password".tr,
                               prefixIcon: Icon(Icons.lock),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(6),
+                                ),
+                                borderSide: BorderSide(width: 2.0),
+                              ),
                               suffixIcon: IconButton(
                                 icon: Icon(
                                   loginController.hiddle.value
-                                      ? Icons.visibility_off 
-                                      : Icons.visibility,
+                                      ? Icons.visibility
+                                      : Icons.visibility_off,
                                 ),
                                 onPressed: () {
                                   loginController.hiddle.value =
