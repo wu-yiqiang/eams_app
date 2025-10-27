@@ -73,7 +73,7 @@ class SelfServicePage extends StatelessWidget {
       margin: EdgeInsets.only(top: 10, bottom: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6),
-        color: const Color.fromARGB(255, 82, 33, 33),
+        color: const Color.fromARGB(255, 255, 255, 255),
       ),
       child: GridView(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

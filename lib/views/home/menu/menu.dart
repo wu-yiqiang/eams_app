@@ -8,7 +8,7 @@ class MenuPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("今日菜谱")),
+      appBar: AppBar(title: Text("todayMenu".tr)),
       body: SafeArea(
         child: Column(
           children: [

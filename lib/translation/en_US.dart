@@ -37,4 +37,5 @@ final Map<String, String> en_US = {
   'punishment': "Punishment",
   'ledger': "Ledger",
   'contract': "Contract",
+  'todayMenu': "Today Menu"
 };
