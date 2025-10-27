@@ -52,7 +52,7 @@ class LoginPage extends StatelessWidget {
                             labelText: "account".tr,
                             hintText: "account".tr,
                             prefixIcon: Icon(Icons.person),
-                            contentPadding: EdgeInsets.all(14),
+                            contentPadding: EdgeInsets.all(12),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.all(
                                 Radius.circular(6),
@@ -77,7 +77,7 @@ class LoginPage extends StatelessWidget {
                               labelText: "password".tr,
                               hintText: "password".tr,
                               prefixIcon: Icon(Icons.lock),
-                              contentPadding: EdgeInsets.all(14),
+                              contentPadding: EdgeInsets.all(12),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.all(
                                   Radius.circular(6),
