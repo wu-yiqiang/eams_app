@@ -116,10 +116,11 @@ class UserPage extends StatelessWidget {
                       onPressed: () async {
                         try {
                           await UserApi.logout();
-                          Get.toNamed(routerMap['LOGIN']!);
-                          storeClearValue(userStoreKeys["TOKEN"]!);
+                         
                         } catch (e) {
                         } finally {
+                          Get.toNamed(routerMap['LOGIN']!);
+                          storeClearValue(userStoreKeys["TOKEN"]!);
                         }
                       },
                       child: Text('logout'.tr),

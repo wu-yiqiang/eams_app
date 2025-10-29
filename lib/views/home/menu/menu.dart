@@ -1,3 +1,4 @@
+import 'package:eams/api/cookbook.dart';
 import 'package:flutter/material.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:get/get.dart';
@@ -13,25 +14,25 @@ class MenuPage extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              child: Swiper(
-                itemBuilder: (BuildContext context, int index) {
-                  // final int inde = index + 1;
+              child: Obx(
+                () => Swiper(
+                  itemBuilder: (BuildContext context, int index) {
                   return ClipRRect(
                     borderRadius: BorderRadius.circular(6),
-                    child: Image.asset(
-                      menuController.todayMenus[index]['path']!,
-                    ),
+                      child: Image.network(
+                        menuController.todayMenus[index]['image']!,
+                        fit: BoxFit.fitWidth,
+                      ),
                   );
                 },
                 itemCount: menuController.todayMenus.length,
                 itemWidth: 300,
                 itemHeight: 450,
                 layout: SwiperLayout.STACK,
-                onIndexChanged: (value) => {
-                  menuController.setIndex(value),
-                },
+                  onIndexChanged: (value) => {menuController.setIndex(value)},
                 // control: SwiperControl(),
               ),
+              )
             ),
             Container(
               margin: EdgeInsets.only(top: 10),
@@ -40,7 +41,7 @@ class MenuPage extends StatelessWidget {
                 children: [
                   Obx(
                     () => Text(
-                      "${menuController.todayMenus[menuController.currentIndex.value]['title']}",
+                      "${menuController.todayMenus.length > 0 ? menuController.todayMenus[menuController.currentIndex.value]!['name']! + '(¥${menuController.todayMenus[menuController.currentIndex.value]!['price']!})' : null}",
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -49,13 +50,13 @@ class MenuPage extends StatelessWidget {
                   ),
                   Obx(
                     () => Text(
-                      "${menuController.todayMenus[menuController.currentIndex.value]['description']}",
+                      "${menuController.todayMenus.length > 0 ? menuController.todayMenus[menuController.currentIndex.value]['description'] : null}",
                       style: TextStyle(fontSize: 14),
                     ),
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),

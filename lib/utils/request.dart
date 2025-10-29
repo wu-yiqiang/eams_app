@@ -69,7 +69,7 @@ class Request {
     //     };
     // };
     try {
-      EasyLoading.show(status: 'loading...');
+      EasyLoading.show();
       Response response = await _dio.request(
         path,
         data: data,
