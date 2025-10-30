@@ -2,6 +2,7 @@ import 'package:eams/api/user.dart';
 import 'package:eams/common/const.dart';
 import 'package:eams/router/routers.dart';
 import 'package:eams/store/store.dart';
+import 'package:eams/utils/EventBus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -119,8 +120,8 @@ class UserPage extends StatelessWidget {
                          
                         } catch (e) {
                         } finally {
-                          Get.toNamed(routerMap['LOGIN']!);
                           storeClearValue(userStoreKeys["TOKEN"]!);
+                          eventBus.emit(Events.LOGOUT.name);
                         }
                       },
                       child: Text('logout'.tr),

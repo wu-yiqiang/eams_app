@@ -36,7 +36,8 @@ class EventBus {
     for (var i = len; i > -1; --i) {
       list[i](arg);
     }
-  }
+  } 
 }
 
 var eventBus = EventBus();
+

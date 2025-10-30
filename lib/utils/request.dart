@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:eams/store/store.dart';
+import 'package:eams/utils/EventBus.dart';
 import 'dart:convert';
 // import 'package:common_utils/common_utils.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -80,12 +81,13 @@ class Request {
         try {
           if (response.data['code'] != 200) {
             // LogUtil.v(response.data['status'], tag: '服务器错误，状态码为：');
-            print("出现错误");
             EasyLoading.showError(
               '${response.data['msg']}',
               duration: Duration(seconds: 2),
             );
-
+            if (response.data['code'] == 1010002) {
+              eventBus.emit(Events.LOGOUT.name);
+            }
             return Future.error(response.data['msg']);
           } else {
             // LogUtil.v(response.data, tag: '响应的数据为：');

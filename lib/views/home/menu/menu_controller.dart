@@ -9,7 +9,12 @@ class TodayMenuController extends GetxController {
   }
 
   void onInit() async {
-    final {'data': data} = await CookBook.getCookBooks();
-    todayMenus.value = data ?? [];
+    try{
+      final {'data': data} = await CookBook.getCookBooks();
+      todayMenus.value = data ?? [];
+    }catch (e){
+      todayMenus.value =  [];
+    }
+    super.onInit();
   }
 }
