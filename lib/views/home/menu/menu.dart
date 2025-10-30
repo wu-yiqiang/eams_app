@@ -41,7 +41,7 @@ class MenuPage extends StatelessWidget {
                 children: [
                   Obx(
                     () => Text(
-                      "${menuController.todayMenus.length > 0 ? menuController.todayMenus[menuController.currentIndex.value]!['name']! + '(¥${menuController.todayMenus[menuController.currentIndex.value]!['price']!})' : null}",
+                      "${menuController.todayMenus.length > 0 ? menuController.todayMenus[menuController.currentIndex.value]!['name']! : null}",
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,

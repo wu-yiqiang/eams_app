@@ -1,4 +1,6 @@
 import "package:eams/store/store.dart";
+import 'package:eams/utils/EventBus.dart';
+import 'package:get/get.dart';
 import "package:eams/views/admin/assets/equipment/equipment.dart";
 import "package:eams/views/admin/assets/repair/repair.dart";
 import "package:eams/views/admin/assets/vehicle/vehicle.dart";
@@ -19,7 +21,6 @@ import "package:eams/views/portal/todo/todoDetail.dart";
 import "package:eams/views/portal/training/course.dart";
 import "package:eams/views/portal/training/training.dart";
 import "package:eams/views/portal/useds/useds.dart";
-import "package:eams/views/user/controller/app_setting_controller.dart";
 import "package:eams/views/user/guide.dart";
 import "package:eams/views/user/personnel.dart";
 import "package:eams/views/user/policy.dart";
@@ -220,3 +221,7 @@ Widget beforeRouter(String pageName) {
   if (pageName == routerMap['COURSE']!) return CoursePage();
   return HomePage();
 }
+
+// EventBus.on(Events.LOGIN.name, () {
+
+// });

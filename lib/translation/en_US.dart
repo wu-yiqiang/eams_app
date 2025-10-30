@@ -37,5 +37,6 @@ final Map<String, String> en_US = {
   'punishment': "Punishment",
   'ledger': "Ledger",
   'contract': "Contract",
-  'todayMenu': "Today Menus"
+  'todayMenu': "Today Menus",
+  'networkError': "Network Error"
 };

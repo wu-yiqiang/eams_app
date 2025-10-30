@@ -37,5 +37,6 @@ final Map<String, String> zh_CN =  {
   'punishment': "处罚",
   'ledger': "台账",
   'contract': "合同",
-  'todayMenu': "今日菜谱"
+  'todayMenu': "今日菜谱",
+  'networkError': "网络错误"
 };
