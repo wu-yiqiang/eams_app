@@ -38,5 +38,6 @@ final Map<String, String> en_US = {
   'ledger': "Ledger",
   'contract': "Contract",
   'todayMenu': "Today Menus",
-  'networkError': "Network Error"
+  'networkError': "Network Error",
+  'noData': "No Data Available"
 };
