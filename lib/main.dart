@@ -11,11 +11,11 @@ import 'package:eams/utils/EventBus.dart';
 void main() async {
   await GetStorage.init();
   storeInit();
-  eventBus.on(Events.LOGIN.name, (arg) {
-    print("登录");
+  eventBus.on(Events.NAVIGATE.name, (ROUTERKEY) {
+    Get.toNamed(ROUTERKEY!);
   });
-  eventBus.on(Events.LOGOUT.name, (arg) {
-    Get.toNamed(routerMap['LOGIN']!);
+  eventBus.on(Events.LOADINGERROR.name, (messages) {
+    EasyLoading.showError(messages.toString().tr, duration: Duration(seconds: 2));
   });
   runApp(
     GetMaterialApp(

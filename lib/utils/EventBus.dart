@@ -2,8 +2,8 @@
 typedef void EventCallback(arg);
 
 enum Events {
-  LOGIN,
-  LOGOUT,
+  NAVIGATE,
+  LOADINGERROR
 }
 class EventBus {
   EventBus._internal();

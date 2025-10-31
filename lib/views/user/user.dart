@@ -121,7 +121,8 @@ class UserPage extends StatelessWidget {
                         } catch (e) {
                         } finally {
                           storeClearValue(userStoreKeys["TOKEN"]!);
-                          eventBus.emit(Events.LOGOUT.name);
+                          eventBus.emit(Events.NAVIGATE.name, routerMap['LOGIN']!,
+                          );
                         }
                       },
                       child: Text('logout'.tr),

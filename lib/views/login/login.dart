@@ -1,6 +1,7 @@
 import 'package:eams/common/const.dart';
 import 'package:eams/router/routers.dart';
 import 'package:eams/store/store.dart';
+import 'package:eams/utils/EventBus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:eams/views/login/controller/login_controller.dart';
@@ -58,7 +59,6 @@ class LoginPage extends StatelessWidget {
                                 Radius.circular(6),
                               ),
                               borderSide: BorderSide(width: 2.0),
-                              
                             ),
                           ),
                         ),
@@ -160,7 +160,7 @@ class LoginPage extends StatelessWidget {
                         );
                         storeSaveMap(userStoreKeys, data);
                         tabsController.setCurrent(0);
-                        Get.toNamed(routerMap['TABS']!);
+                        eventBus.emit(Events.NAVIGATE.name, routerMap['TABS']!);
                       } catch (e) {}
                     },
                   ),

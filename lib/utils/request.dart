@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:eams/router/routers.dart';
 import 'package:eams/store/store.dart';
 import 'package:eams/utils/EventBus.dart';
 import 'dart:convert';
@@ -86,7 +87,7 @@ class Request {
               duration: Duration(seconds: 2),
             );
             if (response.data['code'] == 1010002) {
-              eventBus.emit(Events.LOGOUT.name);
+              eventBus.emit(Events.NAVIGATE.name, routerMap['LOGIN']!);
             }
             return Future.error(response.data['msg']);
           } else {
@@ -109,25 +110,26 @@ class Request {
       }
     } on DioError catch (e, s) {
       // LogUtil.v(_dioError(e), tag: '请求异常');
-      EasyLoading.showError(_dioError(e));
+      eventBus.emit(Events.LOADINGERROR.name, _dioError(e));
       return Future.error(_dioError(e));
     } catch (e, s) {
       // LogUtil.v(e, tag: '未知异常');
-      return Future.error('未知异常');
+      eventBus.emit(Events.LOADINGERROR.name, 'unknownException');
+      return Future.error('unknownException');
     }
   }
 
   // 处理业务层异常
   static String _dioError(DioError error) {
     final BusinessErrorCodes = <DioErrorType, String>{
-      DioErrorType.CONNECT_TIMEOUT: '网络连接超时，请检查网络设置',
-      DioErrorType.RECEIVE_TIMEOUT: '服务器异常，请稍后重试',
-      DioErrorType.SEND_TIMEOUT: '网络连接超时，请检查网络设置',
-      DioErrorType.RESPONSE: '服务器异常，请稍后重试！',
-      DioErrorType.CANCEL: '请求已被取消，请重新请求',
-      DioErrorType.DEFAULT: '网络异常，请稍后重试！',
+      DioErrorType.CONNECT_TIMEOUT: 'networkTimeout',
+      DioErrorType.RECEIVE_TIMEOUT: 'serviceError',
+      DioErrorType.SEND_TIMEOUT: 'networkTimeout',
+      DioErrorType.RESPONSE: 'serviceError',
+      DioErrorType.CANCEL: 'requestCanceled',
+      DioErrorType.DEFAULT: 'networkTimeout',
     };
-    return BusinessErrorCodes[error.type] ?? "网络错误,请稍后重试";
+    return BusinessErrorCodes[error.type] ?? "networkTimeout";
   }
 
   static Future<T> get<T>(String path, Map<String, String>? params) {
@@ -142,18 +144,18 @@ class Request {
   // 处理Http错误码
   static void _handleHttpError(int errorCode) {
     final HttpErrorCodes = <int, String>{
-      400: '客户端请求参数错误',
-      401: '未授权，请登录',
-      403: '拒绝访问',
-      404: '请求地址不存在',
-      408: '请求超时',
-      500: '服务器异常',
-      501: '服务未实现',
-      502: '网关错误',
-      504: '网关超时',
-      505: 'HTTP版本不受支持',
+      400: 'clientRequestParameterError',
+      401: 'unauthorized',
+      403: 'accessDenied',
+      404: 'requestNotExist',
+      408: 'requestTimeout',
+      500: 'serverError',
+      501: 'serviceNotImplemented',
+      502: 'gatewayError',
+      504: 'gatewayTimeout',
+      505: '',
     };
     String message = HttpErrorCodes[errorCode] ?? "请求失败";
-    EasyLoading.showError(message, duration: Duration(seconds: 2));
+    eventBus.emit(Events.LOADINGERROR.name, message);
   }
 }
