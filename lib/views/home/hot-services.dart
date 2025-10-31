@@ -33,6 +33,11 @@ class HotServicePage extends StatelessWidget {
       "icon": "assets/svg/account.svg",
     },
     {
+      "path": routerMap['REIMBURSEMENT'],
+      "label": "reimbursement",
+      "icon": "assets/svg/reimbursement.svg",
+    },
+    {
       "path": routerMap['ATTENDANCE'],
       "label": "自主申报",
       "icon": "assets/svg/report.svg",

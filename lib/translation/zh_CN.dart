@@ -54,4 +54,5 @@ final Map<String, String> zh_CN =  {
   'gatewayError': "网关错误",
   'gatewayTimeout': "网关超时",
   'versionNotSupported': "HTTP版本不支持",
+  'reimbursement': "发票报销"
 };

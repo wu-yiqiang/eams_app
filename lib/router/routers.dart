@@ -63,6 +63,7 @@ final routerMap = <String, String>{
   "CHARGE": '/charge',
   "PAYPAL": '/paypal',
   "COURSE": '/course',
+  "REIMBURSEMENT": "/reimbursement"
 };
 
 abstract class AppPages {
@@ -183,6 +184,10 @@ abstract class AppPages {
       name: routerMap['COURSE']!,
       page: () => beforeRouter(routerMap['COURSE']!),
     ),
+    GetPage(
+      name: routerMap['REIMBURSEMENT']!,
+      page: () => beforeRouter(routerMap['REIMBURSEMENT']!),
+    ),
   ];
 }
 
@@ -219,6 +224,7 @@ Widget beforeRouter(String pageName) {
   if (pageName == routerMap['CHARGE']!) return ChargePage();
   if (pageName == routerMap['PAYPAL']!) return PaypalPage();
   if (pageName == routerMap['COURSE']!) return CoursePage();
+  if (pageName == routerMap['REIMBURSEMENT']!) return CoursePage();
   return HomePage();
 }
 

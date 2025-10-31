@@ -54,4 +54,5 @@ final Map<String, String> en_US = {
   'gatewayError': "Gateway Error",
   'gatewayTimeout': "Gateway Timeout",
   'versionNotSupported': "HTTP version not supported",
+  'reimbursement': "Reimbursement"
 };
