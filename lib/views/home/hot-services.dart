@@ -4,7 +4,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:eams/router/routers.dart';
 import 'package:flutter_svg/svg.dart';
 
-
 class HotServicePage extends StatelessWidget {
   final List selfServices = [
     {
@@ -22,11 +21,7 @@ class HotServicePage extends StatelessWidget {
       "label": "电桩情况",
       "icon": "assets/svg/pile.svg",
     },
-    {
-      "path": routerMap['PARK'],
-      "label": "车位查询",
-      "icon": "assets/svg/park.svg",
-    },
+    {"path": routerMap['PARK'], "label": "车位查询", "icon": "assets/svg/park.svg"},
     {
       "path": routerMap['CREDIT'],
       "label": "帐户余额",
@@ -48,7 +43,10 @@ class HotServicePage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(child: Text("popularPicks".tr), margin: EdgeInsets.only(top: 10)),
+        Container(
+          child: Text("popularPicks".tr),
+          margin: EdgeInsets.only(top: 10),
+        ),
         Row(
           children: [
             Expanded(
@@ -61,21 +59,17 @@ class HotServicePage extends StatelessWidget {
                   child: Row(
                     spacing: 0,
                     children: selfServices.map((v) {
-                      return Container(
-                        child: TextButton(
-                          child: SvgPicture.asset(
-                            v['icon'],
-                            width: 50,
-                            height: 50,
-                          ),
-                          onPressed: () => {Get.toNamed(v['path'])},
+                      return IconButton(
+                        icon: Center(
+                          child: SvgPicture.asset(v['icon'], width: 60),
                         ),
+                        onPressed: () => {Get.toNamed(v['path'])},
                       );
                     }).toList(),
                   ),
                 ),
               ),
-        ),
+            ),
           ],
         ),
       ],
