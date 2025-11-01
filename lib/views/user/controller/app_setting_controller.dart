@@ -7,7 +7,7 @@ class AppSettingController extends GetxController {
   final menusItems = [
     {
       "icon": 'person',
-      "label": 'personnelCenter',
+      "label": 'personal',
       "path": routerMap['PERSON'],
     },
     {

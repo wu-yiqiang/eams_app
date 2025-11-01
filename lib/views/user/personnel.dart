@@ -9,7 +9,7 @@ class PersonPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('personnelCenter'.tr)),
+      appBar: AppBar(title: Text('personal'.tr)),
       body: SafeArea(
         child: Container(
           padding: EdgeInsetsGeometry.only(left: 10, right: 10),

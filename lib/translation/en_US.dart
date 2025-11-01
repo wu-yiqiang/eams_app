@@ -7,7 +7,7 @@ final Map<String, String> en_US = {
   'changeSettingTips': "System setting is changed, Need to restart",
   'confirm': "Confirm",
   'cancel': "Cancel",
-  'personnelCenter': 'Personnel Center',
+  'personal': 'Personal',
   'account': 'Account',
   'password': 'Password',
   'loginTipsTitle': "Login Prompt",
