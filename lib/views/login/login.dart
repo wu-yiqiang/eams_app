@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:eams/common/const.dart';
 import 'package:eams/router/routers.dart';
 import 'package:eams/store/store.dart';
@@ -162,12 +160,7 @@ class LoginPage extends StatelessWidget {
                         );
                         storeSaveMap(userStoreKeys, data);
                         tabsController.setCurrent(0);
-                        Timer(Duration(seconds: 1), () {
-                          eventBus.emit(
-                            Events.NAVIGATE.name,
-                            routerMap['TABS']!,
-                          );
-                        });
+                        eventBus.emit(Events.NAVIGATE.name, routerMap['TABS']!);
                       } catch (e) {}
                     },
                   ),
