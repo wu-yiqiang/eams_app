@@ -1,3 +1,4 @@
+import 'package:eams/common/const.dart';
 import 'package:eams/router/routers.dart';
 import 'package:eams/store/store.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +29,11 @@ void main() async {
       ),
       translations: Language(),
       initialBinding: AllControllerBinding(),
-      theme: ThemeData(primaryColor: Colors.white),
+      theme: ThemeData(
+        primaryColor: whiteColor,
+        scaffoldBackgroundColor: greyColor,
+        appBarTheme: AppBarTheme(color: greyColor),
+      ),
       builder: EasyLoading.init(),
     ),
   );

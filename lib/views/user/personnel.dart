@@ -12,7 +12,7 @@ class PersonPage extends StatelessWidget {
       appBar: AppBar(title: Text('personal'.tr)),
       body: SafeArea(
         child: Container(
-          padding: EdgeInsetsGeometry.only(left: 10, right: 10),
+          padding: EdgeInsetsGeometry.only(left: 10, right: 10, top: 10),
           child: Container(
             width: double.infinity,
             padding: EdgeInsetsGeometry.all(20),

@@ -73,6 +73,7 @@ class SettingPage extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Container(
+                            padding: EdgeInsets.all(10),
                             decoration: BoxDecoration(
                               border: Border(
                                 bottom: BorderSide(
@@ -92,7 +93,6 @@ class SettingPage extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Container(
-                                  padding: EdgeInsets.all(6),
                                   child: Row(
                                     spacing: 4,
                                     children: [Text("language".tr)],
