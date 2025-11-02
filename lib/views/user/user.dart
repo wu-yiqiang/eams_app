@@ -53,7 +53,7 @@ class UserPage extends StatelessWidget {
               margin: EdgeInsets.all(10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(6),
-                color: Colors.white,
+                color: whiteColor,
               ),
               child: Column(
                 children: appSettingController.menusItems.value.map((item) {
@@ -69,15 +69,10 @@ class UserPage extends StatelessWidget {
                               border: Border(
                                 bottom: BorderSide(
                                   width: 1,
-                                  color: const Color.fromARGB(
-                                    255,
-                                    181,
-                                    181,
-                                    181,
-                                  ),
+                                  color: greyColor2,
                                 ),
                               ),
-                              color: const Color.fromARGB(200, 255, 255, 255),
+                              color: greyColor3,
                             ),
                             child: Flex(
                               direction: Axis.horizontal,
@@ -131,7 +126,7 @@ class UserPage extends StatelessWidget {
                           primaryTheme,
                         ), // 按扭背景颜色
                         foregroundColor: WidgetStateProperty.all(
-                          Colors.white,
+                          whiteColor,
                         ), // 按钮文本颜色
                         shape: WidgetStateProperty.all(
                           RoundedRectangleBorder(

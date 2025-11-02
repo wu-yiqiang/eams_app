@@ -1,3 +1,4 @@
+import 'package:eams/common/const.dart';
 import 'package:eams/store/store.dart';
 import 'package:eams/views/user/controller/app_setting_controller.dart';
 import 'package:flutter/material.dart';
@@ -78,15 +79,10 @@ class SettingPage extends StatelessWidget {
                               border: Border(
                                 bottom: BorderSide(
                                   width: 1,
-                                  color: const Color.fromARGB(
-                                    255,
-                                    181,
-                                    181,
-                                    181,
-                                  ),
+                                  color: greyColor2,
                                 ),
                               ),
-                              color: const Color.fromARGB(250, 250, 250, 250),
+                              color: greyColor3,
                             ),
                             child: Flex(
                               direction: Axis.horizontal,
