@@ -1,3 +1,4 @@
+import 'package:eams/common/const.dart';
 import 'package:eams/views/home/park/park_controller.dart';
 import 'package:eams/widgets/Empty.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,7 @@ class ParkPage extends StatelessWidget {
             return parkController.sumStations.value <= 0
                 ? Empty()
                 : Column(
+                    spacing: 20,
                     children: [
                       Center(
                         // child: Transform.rotate(
@@ -27,15 +29,43 @@ class ParkPage extends StatelessWidget {
                         //   child: ArcView(currentCount: remainStation, total: total),
                         // ),
                         child: ArcView(
-                          currentCount: parkController.remainStations.value,
+                          currentCount: parkController.usedStations.value,
                           total: parkController.sumStations.value,
                         ),
                       ),
                       Container(
-                        child: Text(
-                          "remainParkStationTips".trParams({
-                            'count': parkController.remainStations.value.toString(),
-                          }),
+                        // child: Text(
+                        //   "remainParkStationTips".trParams({
+                        //     'count': parkController.remainStations.value.toString(),
+                        //   }),
+                        //   style: TextStyle(fontSize: 16)
+                        // ),
+                        child: Text.rich(
+                          TextSpan(
+                            children: [
+                              TextSpan(
+                                text: 'remainParkStationTips'.tr
+                                    .split('@count')
+                                    .first,
+                                style: TextStyle(fontSize: 16),
+                              ),
+                              TextSpan(
+                                text: parkController.remainStations.value
+                                    .toString(),
+                                style: TextStyle(
+                                  color: redColor,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
+                              ),
+                              TextSpan(
+                                text: 'remainParkStationTips'.tr
+                                    .split('@count')
+                                    .last,
+                                style: TextStyle(fontSize: 16),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],
