@@ -60,6 +60,12 @@ class LoginPage extends StatelessWidget {
                               ),
                               borderSide: BorderSide(width: 2.0),
                             ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: primaryTheme,
+                                width: 2.0,
+                              ),
+                            ),
                           ),
                         ),
                       ),
@@ -69,7 +75,6 @@ class LoginPage extends StatelessWidget {
                             keyboardType: TextInputType.emailAddress,
                             initialValue:
                                 loginController.LoginForm.value['password']!,
-
                             onChanged: (value) {
                               loginController.setLoginForm('password', value);
                             },
@@ -83,6 +88,12 @@ class LoginPage extends StatelessWidget {
                                   Radius.circular(6),
                                 ),
                                 borderSide: BorderSide(width: 2.0),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: primaryTheme,
+                                  width: 2.0,
+                                ),
                               ),
                               suffixIcon: IconButton(
                                 icon: Icon(
