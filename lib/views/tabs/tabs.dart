@@ -17,6 +17,7 @@ class TabsPage extends StatelessWidget {
       ),
       bottomNavigationBar: Obx(
         () => BottomNavigationBar(
+          backgroundColor: greyColor,
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.home, color: Colors.black),
