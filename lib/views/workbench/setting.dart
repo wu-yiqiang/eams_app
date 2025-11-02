@@ -17,7 +17,6 @@ class SettingPage extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(6)),
             ),
-            // title: Text('languageChange'.tr),
             children: <Widget>[
               SimpleDialogOption(
                 onPressed: () {
@@ -28,6 +27,7 @@ class SettingPage extends StatelessWidget {
                   child: Column(
                     children: [
                       RadioListTile<String>(
+                        activeColor: primaryTheme,
                         title: Text(languageKeys["zh"]!),
                         value: 'zh',
                         groupValue: appSettingController.getAppSystemKeyValue(
@@ -35,9 +35,11 @@ class SettingPage extends StatelessWidget {
                         ),
                         onChanged: (String? value) {
                           appSettingController.changeLanguage('zh', 'CN');
+                          Navigator.pop(context, 0);
                         },
                       ),
                       RadioListTile<String>(
+                        activeColor: primaryTheme,
                         title: Text(languageKeys["en"]!),
                         value: 'en',
                         groupValue: appSettingController.getAppSystemKeyValue(
@@ -45,6 +47,7 @@ class SettingPage extends StatelessWidget {
                         ),
                         onChanged: (String? value) {
                           appSettingController.changeLanguage('en', 'US');
+                          Navigator.pop(context, 0);
                         },
                       ),
                     ],
