@@ -16,7 +16,7 @@ class SettingPage extends StatelessWidget {
           return SimpleDialog(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(
-                Radius.circular(borderRadius as double),
+                Radius.circular(borderRadius),
               ),
             ),
             children: <Widget>[

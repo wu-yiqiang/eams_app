@@ -20,11 +20,15 @@ final settingStoreKeys = <String, String>{
 void storeInit() {
   dynamic language = storeGetValue(settingStoreKeys['LANGUAGE']!);
   dynamic country = storeGetValue(settingStoreKeys['COUNTRY']!);
+  dynamic token = storeGetValue(userStoreKeys['TOKEN']!);
   if (language == null) {
     storeSetValue(settingStoreKeys['LANGUAGE']!, 'en');
   }
   if (country == null) {
     storeSetValue(settingStoreKeys['COUNTRY']!, 'US');
+  }
+  if (token == null) {
+    storeSetValue(userStoreKeys['TOKEN']!, 'asw112123232sd1');
   }
 }
 

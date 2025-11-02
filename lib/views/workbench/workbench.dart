@@ -1,5 +1,6 @@
 import 'package:eams/common/const.dart';
 import 'package:eams/views/admin/assets/assets.dart';
+import 'package:eams/views/admin/assets/vacation/vacation.dart';
 import 'package:eams/views/admin/assets/vehicle/vehicle.dart';
 import 'package:eams/views/admin/employees/personnel/personnel.dart';
 import 'package:flutter/material.dart';
@@ -10,9 +11,9 @@ class WorkbenchPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final List menus = [
       {'tab': Tab(text: '资产管理'), 'page': AssetsPage()},
-      {'tab': Tab(text: '人员管理'), 'page': PersonnelPage()},
-      {'tab': Tab(text: '废物管理'), 'page': VehiclePage()},
-      {'tab': Tab(text: '请假管理'), 'page': VehiclePage()},
+      {'tab': Tab(text: '联合早报'), 'page': PersonnelPage()},
+      {'tab': Tab(text: 'IT之家'), 'page': VehiclePage()},
+      {'tab': Tab(text: '微软天气'), 'page': VacationPage()},
     ];
     return DefaultTabController(
       length: menus.length,

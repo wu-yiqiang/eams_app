@@ -8,7 +8,7 @@ class VehiclePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Webvview(url: "https://www.baidu.com/")
+      body: Webvview(url: "https://m.ithome.com/")
     );
   }
 }
