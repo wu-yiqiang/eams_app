@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 class TodayMenuController extends GetxController {
   RxInt currentIndex = 0.obs;
-  RxList todayMenus = [].obs;
+  RxList dailyMenus = [].obs;
   void setIndex(value) {
     currentIndex.value = value;
   }
@@ -22,9 +22,9 @@ class TodayMenuController extends GetxController {
   Future<void> getCookBookLists() async {
     try {
       final {'data': data} = await CookBook.getCookBooks();
-      todayMenus.value = data ?? [];
+      dailyMenus.value = data ?? [];
     } catch (e) {
-      todayMenus.value = [];
+      dailyMenus.value = [];
     }
   }
 }

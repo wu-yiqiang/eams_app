@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:eams/components/video_view.dart';
+import 'package:eams/widgets/video_player/video_view.dart';
 
 class CoursePage extends StatelessWidget {
   final String cover = 'sdsd';

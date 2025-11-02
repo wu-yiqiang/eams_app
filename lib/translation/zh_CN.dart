@@ -37,7 +37,7 @@ final Map<String, String> zh_CN =  {
   'punishment': "处罚",
   'ledger': "台账",
   'contract': "合同",
-  'todayMenu': "今日菜谱",
+  'dailyMenu': "每日菜谱",
   'networkError': "网络错误",
   'noData': "暂无数据",
   'unknownException': "位置错误",
@@ -54,5 +54,7 @@ final Map<String, String> zh_CN =  {
   'gatewayError': "网关错误",
   'gatewayTimeout': "网关超时",
   'versionNotSupported': "HTTP版本不支持",
-  'reimbursement': "发票报销"
+  'reimbursement': "发票报销",
+  'parkDetails': "车位详情",
+  'remainParkStationTips': '当前还剩余@count个车位可供使用'
 };

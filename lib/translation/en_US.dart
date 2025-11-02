@@ -37,7 +37,7 @@ final Map<String, String> en_US = {
   'punishment': "Punishment",
   'ledger': "Ledger",
   'contract': "Contract",
-  'todayMenu': "Today Menus",
+  'dailyMenu': "Daily Menus",
   'networkError': "Network Error",
   'noData': "No Data Available",
   'unknownException': "Unknown Exception",
@@ -54,5 +54,7 @@ final Map<String, String> en_US = {
   'gatewayError': "Gateway Error",
   'gatewayTimeout': "Gateway Timeout",
   'versionNotSupported': "HTTP version not supported",
-  'reimbursement': "Reimbursement"
+  'reimbursement': "Reimbursement",
+  'parkDetails': "Park Details",
+  'remainParkStationTips': 'Currently, there are @count parking spaces available for use.'
 };

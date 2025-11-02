@@ -3,7 +3,7 @@ import 'package:eams/views/portal/training/training_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:eams/components/video_view.dart';
+import 'package:eams/widgets/video_player/video_view.dart';
 import 'package:card_swiper/card_swiper.dart';
 class TrainingPage extends StatelessWidget {
   TrainingController trainingController = Get.put(TrainingController());
