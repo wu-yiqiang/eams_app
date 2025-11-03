@@ -23,7 +23,7 @@ class _MenuButtonState extends State<MenuButton> {
         ],
       ),
       onPressed: () {
-        eventBus.emit(Events.NAVIGATE.name, widget.item['path'] as EventCallback);
+        eventBus.emit(Events.NAVIGATE.name, widget.item['path']!);
       },
     );
   }

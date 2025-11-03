@@ -4,6 +4,6 @@ import 'package:flutter/material.dart';
 class VacationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Webvview(url: "https://www.msn.cn/zh-cn/weather/"));
+    return Scaffold(body: Text("车辆"));
   }
 }

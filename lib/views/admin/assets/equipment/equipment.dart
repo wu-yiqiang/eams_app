@@ -1,3 +1,4 @@
+import 'package:eams/widgets/webview/webview.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/svg.dart';
@@ -6,19 +7,10 @@ class EquipmentPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("设备")),
+      appBar: AppBar(title: Text("微软天气")),
       body: SafeArea(
-        child: Column(
-          children: [
-            Container(
-              width: 120,
-              height: 120,
-              margin: EdgeInsets.only(top: 30, bottom: 30),
-              child: Text("设备"),
-            ),
-          ],
+        child: Webvview(url: "https://www.msn.cn/zh-cn/weather/"),
         ),
-      ),
     );
   }
 }

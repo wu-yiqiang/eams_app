@@ -13,8 +13,8 @@ void main() async {
   await GetStorage.init();
   storeInit();
   eventBus.on(Events.NAVIGATE.name, (ROUTERKEY) {
-    String token = storeGetValue(userStoreKeys['TOKEN']!);
-    if (token == null) {
+    dynamic token = storeGetValue(userStoreKeys['TOKEN']!);
+    if (token == null && ROUTERKEY != routerMap['LOGIN']) {
       Get.toNamed(routerMap['LOGIN']!);
     }
     Get.toNamed(ROUTERKEY!);
