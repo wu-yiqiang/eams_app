@@ -1,3 +1,4 @@
+import 'package:eams/utils/EventBus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -22,7 +23,7 @@ class _MenuButtonState extends State<MenuButton> {
         ],
       ),
       onPressed: () {
-        Get.toNamed(widget.item['path']);
+        eventBus.emit(Events.NAVIGATE.name, widget.item['path'] as EventCallback);
       },
     );
   }

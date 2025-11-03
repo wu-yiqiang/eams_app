@@ -13,10 +13,17 @@ void main() async {
   await GetStorage.init();
   storeInit();
   eventBus.on(Events.NAVIGATE.name, (ROUTERKEY) {
+    String token = storeGetValue(userStoreKeys['TOKEN']!);
+    if (token == null) {
+      Get.toNamed(routerMap['LOGIN']!);
+    }
     Get.toNamed(ROUTERKEY!);
   });
   eventBus.on(Events.LOADINGERROR.name, (messages) {
-    EasyLoading.showError(messages.toString().tr, duration: Duration(seconds: 2));
+    EasyLoading.showError(
+      messages.toString().tr,
+      duration: Duration(seconds: 2),
+    );
   });
   runApp(
     GetMaterialApp(

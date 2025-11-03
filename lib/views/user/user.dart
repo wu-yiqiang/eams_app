@@ -59,7 +59,10 @@ class UserPage extends StatelessWidget {
                 children: appSettingController.menusItems.value.map((item) {
                   return InkWell(
                     onTap: () {
-                      Get.toNamed(item['path']!);
+                      eventBus.emit(
+                        Events.NAVIGATE.name,
+                        item['path']!,
+                      );
                     },
                     child: Row(
                       children: [

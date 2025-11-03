@@ -1,3 +1,4 @@
+import 'package:eams/utils/EventBus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/svg.dart';
@@ -63,7 +64,9 @@ class HotServicePage extends StatelessWidget {
                         icon: Center(
                           child: SvgPicture.asset(v['icon'], width: 60),
                         ),
-                        onPressed: () => {Get.toNamed(v['path'])},
+                        onPressed: () => {
+                          eventBus.emit(Events.NAVIGATE.name, v['path'])
+                        },
                       );
                     }).toList(),
                   ),

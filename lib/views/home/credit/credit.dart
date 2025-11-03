@@ -1,8 +1,8 @@
 import 'package:eams/router/routers.dart';
+import 'package:eams/utils/EventBus.dart';
 import 'package:eams/views/home/credit/credit_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 
 class CreditPage extends StatelessWidget {
   CreditController creditController = Get.put(CreditController());
@@ -92,7 +92,7 @@ class CreditPage extends StatelessWidget {
                             ),
                             side: BorderSide(color: Colors.white60, width: 0),
                           ),
-                          textStyle: TextStyle(color: Colors.white)
+                          textStyle: TextStyle(color: Colors.white),
                         ),
                         child: Text(
                           "查看充值记录",
@@ -103,7 +103,7 @@ class CreditPage extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
-                          Get.toNamed(routerMap['PAYPAL']!);
+                          eventBus.emit(Events.NAVIGATE.name, routerMap['PAYPAL'] as EventCallback);
                         },
                       ),
                     ),

@@ -1,3 +1,4 @@
+import 'package:eams/utils/EventBus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/svg.dart';
@@ -100,7 +101,7 @@ class SelfServicePage extends StatelessWidget {
               ],
             ),
             onPressed: () {
-              Get.toNamed(v['path']);
+              eventBus.emit(Events.NAVIGATE.name, v['path']);
             },
           );
         }).toList(),

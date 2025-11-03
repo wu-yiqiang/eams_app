@@ -1,4 +1,5 @@
 import 'package:eams/router/routers.dart';
+import 'package:eams/utils/EventBus.dart';
 import 'package:eams/views/portal/training/training_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -91,7 +92,10 @@ class TrainingPage extends StatelessWidget {
                                   ),
                                 ),
                                 onPressed: () {
-                                  Get.toNamed(routerMap['COURSE']!);
+                                  eventBus.emit(
+                                    Events.NAVIGATE.name,
+                                    routerMap['COURSE'] as EventCallback,
+                                  );
                                 },
                               ),
                             ],
