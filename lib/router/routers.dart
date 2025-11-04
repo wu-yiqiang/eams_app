@@ -1,5 +1,6 @@
 import "package:eams/store/store.dart";
 import 'package:eams/utils/EventBus.dart';
+import "package:eams/views/portal/statistics/statistics.dart";
 import 'package:get/get.dart';
 import "package:eams/views/admin/assets/equipment/equipment.dart";
 import "package:eams/views/admin/assets/repair/repair.dart";
@@ -63,7 +64,8 @@ final routerMap = <String, String>{
   "CHARGE": '/charge',
   "PAYPAL": '/paypal',
   "COURSE": '/course',
-  "REIMBURSEMENT": "/reimbursement"
+  "REIMBURSEMENT": "/reimbursement",
+  "STATISTICS": "/statistics"
 };
 
 abstract class AppPages {
@@ -188,6 +190,10 @@ abstract class AppPages {
       name: routerMap['REIMBURSEMENT']!,
       page: () => beforeRouter(routerMap['REIMBURSEMENT']!),
     ),
+    GetPage(
+      name: routerMap['STATISTICS']!,
+      page: () => beforeRouter(routerMap['STATISTICS']!),
+    ),
   ];
 }
 
@@ -222,9 +228,6 @@ Widget beforeRouter(String pageName) {
   if (pageName == routerMap['PAYPAL']!) return PaypalPage();
   if (pageName == routerMap['COURSE']!) return CoursePage();
   if (pageName == routerMap['REIMBURSEMENT']!) return CoursePage();
+  if (pageName == routerMap['STATISTICS']!) return StatisticsPage();
   return HomePage();
 }
-
-// EventBus.on(Events.LOGIN.name, () {
-
-// });

@@ -56,5 +56,6 @@ final Map<String, String> zh_CN =  {
   'versionNotSupported': "HTTP版本不支持",
   'reimbursement': "发票报销",
   'parkDetails': "车位详情",
-  'remainParkStationTips': '当前剩余@count个车位'
+  'remainParkStationTips': '当前剩余@count个车位',
+  'statistics': '统计'
 };

@@ -56,5 +56,6 @@ final Map<String, String> en_US = {
   'versionNotSupported': "HTTP version not supported",
   'reimbursement': "Reimbursement",
   'parkDetails': "Park Details",
-  'remainParkStationTips': 'There are currently @count parking spaces remaining.'
+  'remainParkStationTips': 'There are currently @count parking spaces remaining.',
+  'statistics': 'Statistics'
 };

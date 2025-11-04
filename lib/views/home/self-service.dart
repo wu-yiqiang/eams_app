@@ -66,6 +66,11 @@ class SelfServicePage extends StatelessWidget {
       "label": "contract".tr,
       "icon": "assets/svg/contract.svg",
     },
+    {
+      "path": routerMap['STATISTICS'],
+      "label": "statistics".tr,
+      "icon": "assets/svg/statistics.svg",
+    },
   ];
   @override
   Widget build(BuildContext context) {
