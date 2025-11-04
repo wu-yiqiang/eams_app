@@ -8,7 +8,10 @@ class VehiclePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text("个人")
+      appBar: AppBar(
+        title: Text("车辆"),
+      ),
+      body: SafeArea(child: Text("车辆")),
     );
   }
 }
