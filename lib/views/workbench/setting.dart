@@ -37,7 +37,7 @@ class SettingPage extends StatelessWidget {
                         ),
                         onChanged: (String? value) {
                           appSettingController.changeLanguage('zh', 'CN');
-                          Navigator.pop(context, 0);
+                          Navigator.pop(context);
                         },
                       ),
                       RadioListTile<String>(
@@ -49,7 +49,7 @@ class SettingPage extends StatelessWidget {
                         ),
                         onChanged: (String? value) {
                           appSettingController.changeLanguage('en', 'US');
-                          Navigator.pop(context, 0);
+                          Navigator.pop(context);
                         },
                       ),
                     ],

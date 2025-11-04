@@ -12,11 +12,11 @@ class Empty extends StatelessWidget {
           spacing: 30,
           children: [
             SvgPicture.asset("assets/svg/nodata.svg", width: 100, height: 100),
-          Text(
-            'noData'.tr,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-          ],
+            Text(
+              'noData'.tr,
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+            ],
         ),
     );
   }
