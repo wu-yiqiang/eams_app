@@ -72,162 +72,127 @@ abstract class AppPages {
   static final pages = [
     GetPage(
       name: routerMap['TABS']!,
-      page: () => beforeRouter(routerMap['TABS']!),
+      page: () => TabsPage(),
     ),
     GetPage(
       name: routerMap['HOME']!,
-      page: () => beforeRouter(routerMap['HOME']!),
+      page: () => HomePage(),
     ),
     GetPage(
       name: routerMap['LOGIN']!,
-      page: () => beforeRouter(routerMap['LOGIN']!),
+      page: () => LoginPage(),
     ),
     GetPage(
       name: routerMap['CONTRACT']!,
-      page: () => beforeRouter(routerMap['CONTRACT']!),
+      page: () => ContractPage(),
     ),
     GetPage(
       name: routerMap['TODO']!,
-      page: () => beforeRouter(routerMap['TODO']!),
+      page: () => TodoPage(),
     ),
     GetPage(
       name: routerMap['ATTENDANCE']!,
-      page: () => beforeRouter(routerMap['ATTENDANCE']!),
+      page: () => AttendancePage(),
     ),
     GetPage(
       name: routerMap['BUSINESSTRIP']!,
-      page: () => beforeRouter(routerMap['BUSINESSTRIP']!),
+      page: () => BusinessTripPage(),
     ),
     GetPage(
       name: routerMap['OVERWORK']!,
-      page: () => beforeRouter(routerMap['OVERWORK']!),
+      page: () => OverworkPage(),
     ),
     GetPage(
       name: routerMap['HOLIDAY']!,
-      page: () => beforeRouter(routerMap['HOLIDAY']!),
+      page: () => HolidayPage(),
     ),
     GetPage(
       name: routerMap['FIELDWORK']!,
-      page: () => beforeRouter(routerMap['FIELDWORK']!),
+      page: () => FieldWorkPage(),
     ),
     GetPage(
       name: routerMap['TRAINING']!,
-      page: () => beforeRouter(routerMap['TRAINING']!),
+      page: () => TrainingPage(),
     ),
     GetPage(
       name: routerMap['SALARYADJUST']!,
-      page: () => beforeRouter(routerMap['SALARYADJUST']!),
+      page: () => SalaryAdjustPage(),
     ),
     GetPage(
       name: routerMap['REWARD']!,
-      page: () => beforeRouter(routerMap['REWARD']!),
+      page: () => RewardPage(),
     ),
     GetPage(
       name: routerMap['PUNISH']!,
-      page: () => beforeRouter(routerMap['PUNISH']!),
+      page: () => PunishPage(),
     ),
     GetPage(
       name: routerMap['USEDS']!,
-      page: () => beforeRouter(routerMap['USEDS']!),
+      page: () => UsedsPage(),
     ),
     GetPage(
       name: routerMap['VEHICLE']!,
-      page: () => beforeRouter(routerMap['VEHICLE']!),
+      page: () => VehiclePage(),
     ),
     GetPage(
       name: routerMap['EQUIPMENT']!,
-      page: () => beforeRouter(routerMap['EQUIPMENT']!),
+      page: () => EquipmentPage(),
     ),
     GetPage(
       name: routerMap['REPAIR']!,
-      page: () => beforeRouter(routerMap['REPAIR']!),
+      page: () => RepairPage(),
     ),
     GetPage(
       name: routerMap['POLICY']!,
-      page: () => beforeRouter(routerMap['POLICY']!),
+      page: () => PolicyPage(),
     ),
     GetPage(
       name: routerMap['PERSON']!,
-      page: () => beforeRouter(routerMap['PERSON']!),
+      page: () => PersonPage(),
     ),
     GetPage(
       name: routerMap['SETTING']!,
-      page: () => beforeRouter(routerMap['SETTING']!),
+      page: () => SettingPage(),
     ),
     GetPage(
       name: routerMap['MENUS']!,
-      page: () => beforeRouter(routerMap['MENUS']!),
+      page: () => MenuPage(),
     ),
     GetPage(
       name: routerMap['PARK']!,
-      page: () => beforeRouter(routerMap['PARK']!),
+      page: () => ParkPage(),
     ),
     GetPage(
       name: routerMap['GUIDE']!,
-      page: () => beforeRouter(routerMap['GUIDE']!),
+      page: () => GuidePage(),
     ),
     GetPage(
       name: routerMap['TODODETAIL']!,
-      page: () => beforeRouter(routerMap['TODODETAIL']!),
+      page: () => TodoDetailPage(),
     ),
     GetPage(
       name: routerMap['CREDIT']!,
-      page: () => beforeRouter(routerMap['CREDIT']!),
+      page: () => CreditPage(),
     ),
     GetPage(
       name: routerMap['CHARGE']!,
-      page: () => beforeRouter(routerMap['CHARGE']!),
+      page: () => ChargePage(),
     ),
     GetPage(
       name: routerMap['PAYPAL']!,
-      page: () => beforeRouter(routerMap['PAYPAL']!),
+      page: () => PaypalPage(),
     ),
     GetPage(
       name: routerMap['COURSE']!,
-      page: () => beforeRouter(routerMap['COURSE']!),
+      page: () => CoursePage(),
     ),
     GetPage(
       name: routerMap['REIMBURSEMENT']!,
-      page: () => beforeRouter(routerMap['REIMBURSEMENT']!),
+      page: () => CoursePage(),
     ),
     GetPage(
       name: routerMap['STATISTICS']!,
-      page: () => beforeRouter(routerMap['STATISTICS']!),
+      page: () => StatisticsPage(),
     ),
   ];
-}
-
-Widget beforeRouter(String pageName) {
-  if (pageName == routerMap['TABS']!) return TabsPage();
-  if (pageName == routerMap['HOME']!) return HomePage();
-  if (pageName == routerMap['LOGIN']!) return LoginPage();
-  if (pageName == routerMap['CONTRACT']!) return ContractPage();
-  if (pageName == routerMap['TODO']!) return TodoPage();
-  if (pageName == routerMap['ATTENDANCE']!) return AttendancePage();
-  if (pageName == routerMap['BUSINESSTRIP']!) return BusinessTripPage();
-  if (pageName == routerMap['OVERWORK']!) return OverworkPage();
-  if (pageName == routerMap['HOLIDAY']!) return HolidayPage();
-  if (pageName == routerMap['FIELDWORK']!) return FieldWorkPage();
-  if (pageName == routerMap['TRAINING']!) return TrainingPage();
-  if (pageName == routerMap['SALARYADJUST']!) return SalaryAdjustPage();
-  if (pageName == routerMap['REWARD']!) return RewardPage();
-  if (pageName == routerMap['PUNISH']!) return PunishPage();
-  if (pageName == routerMap['USEDS']!) return UsedsPage();
-  if (pageName == routerMap['VEHICLE']!) return VehiclePage();
-  if (pageName == routerMap['EQUIPMENT']!) return EquipmentPage();
-  if (pageName == routerMap['REPAIR']!) return RepairPage();
-  if (pageName == routerMap['POLICY']!) return PolicyPage();
-  if (pageName == routerMap['PERSON']!) return PersonPage();
-  if (pageName == routerMap['SETTING']!) return SettingPage();
-  if (pageName == routerMap['MENUS']!) return MenuPage();
-  if (pageName == routerMap['PARK']!) return ParkPage();
-  if (pageName == routerMap['GUIDE']!) return GuidePage();
-  if (pageName == routerMap['TODODETAIL']!) return TodoDetailPage();
-  if (pageName == routerMap['CREDIT']!) return CreditPage();
-  if (pageName == routerMap['CHARGE']!) return ChargePage();
-  if (pageName == routerMap['PAYPAL']!) return PaypalPage();
-  if (pageName == routerMap['COURSE']!) return CoursePage();
-  if (pageName == routerMap['REIMBURSEMENT']!) return CoursePage();
-  if (pageName == routerMap['STATISTICS']!) return StatisticsPage();
-  return HomePage();
 }
