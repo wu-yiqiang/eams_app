@@ -2,74 +2,75 @@ import 'package:eams/common/const.dart';
 import 'package:eams/router/routers.dart';
 import 'package:eams/widgets/MenuButton.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class WorkbenchPage extends StatelessWidget {
-  final List menus = [
+  List menus = [
     {
-      'menu': "资产中心",
+      'menu': "assetsCenter".tr,
       'childrens': <Map>[
         {
-          'label': "固定资产",
+          'label': 'fixedAssets'.tr,
           'icon': 'assets/svg/fixAssets.svg',
           'path': routerMap['EQUIPMENT'],
         },
         {
-          'label': "流动资产",
+          'label': 'currentAssets'.tr,
           'icon': 'assets/svg/activeAssets.svg',
           'path': routerMap['VEHICLE'],
         },
       ],
     },
     {
-      'menu': "人员中心",
+      'menu': 'employeeCenter'.tr,
       'childrens': <Map>[
         {
-          'label': "员工信息",
+          'label': 'employeeInformation'.tr,
           'icon': 'assets/svg/employee.svg',
           'path': routerMap['EQUIPMENT'],
         },
         {
-          'label': "考勤信息",
+          'label': 'attendanceInformation'.tr,
           'icon': 'assets/svg/work.svg',
           'path': routerMap['EQUIPMENT'],
         },
         {
-          'label': "薪酬信息",
+          'label': 'salaryInformation'.tr,
           'icon': 'assets/svg/salary.svg',
           'path': routerMap['EQUIPMENT'],
         },
         {
-          'label': "社保信息",
+          'label': 'socialSecurityInformation'.tr,
           'icon': 'assets/svg/socialSecurity.svg',
           'path': routerMap['EQUIPMENT'],
         },
       ],
     },
     {
-      'menu': '财务中心',
+      'menu': 'financeCenter'.tr,
       'childrens': <Map>[
         {
-          'label': "报销审批",
+          'label': 'reimbursementApproval'.tr,
           'icon': 'assets/svg/reimbursementApproval.svg',
           'path': routerMap['VEHICLE'],
         },
         {
-          'label': "采购审批",
+          'label': 'purchaseApproval'.tr,
           'icon': 'assets/svg/buy.svg',
           'path': routerMap['EQUIPMENT'],
         },
       ],
     },
     {
-      'menu': '业务中心',
+      'menu': 'businessCenter'.tr,
       'childrens': <Map>[
         {
-          'label': "采购合同",
+          'label': 'purchaseContract'.tr,
           'icon': 'assets/svg/buyContract.svg',
           'path': routerMap['VEHICLE'],
         },
         {
-          'label': "销售合同",
+          'label': 'salesContract'.tr,
           'icon': 'assets/svg/saleContract.svg',
           'path': routerMap['VEHICLE'],
         },
@@ -93,7 +94,7 @@ class WorkbenchPage extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.all(20),
+            padding: EdgeInsets.only(left: 14, right: 14, top: 10, bottom: 10),
             child: Column(
               spacing: 10,
             children: menus.map((menu) {
@@ -118,7 +119,7 @@ class WorkbenchPage extends StatelessWidget {
                         physics:
                             const NeverScrollableScrollPhysics(), // 禁止滚动（如果放在可滚动组件中）
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 5,
+                          crossAxisCount: 4,
                           childAspectRatio: 1.0,
                         ),
                         children: _menus(menu['childrens']),

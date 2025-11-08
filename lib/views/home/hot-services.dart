@@ -58,11 +58,12 @@ class HotServicePage extends StatelessWidget {
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    spacing: 0,
+                    spacing: 10,
                     children: selfServices.map((v) {
                       return IconButton(
+                        padding: EdgeInsets.all(0),
                         icon: Center(
-                          child: SvgPicture.asset(v['icon'], width: 60),
+                          child: SvgPicture.asset(v['icon'], width: 50),
                         ),
                         onPressed: () => {
                           eventBus.emit(Events.NAVIGATE.name, v['path'])

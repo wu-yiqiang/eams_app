@@ -1,3 +1,4 @@
+import 'package:eams/common/const.dart';
 import 'package:eams/utils/EventBus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -75,7 +76,7 @@ class SelfServicePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 154,
+      height: 142,
       margin: EdgeInsets.only(top: 10, bottom: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6),
@@ -99,8 +100,11 @@ class SelfServicePage extends StatelessWidget {
                 SizedBox(
                   child: Text(
                     v['label'],
-                    style: TextStyle(fontSize: 13),
-                    softWrap: true,
+                    style: TextStyle(fontSize: 13,
+                      color: blackColor,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
               ],
