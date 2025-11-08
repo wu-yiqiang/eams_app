@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class MenuButton extends StatefulWidget {
-  const MenuButton({Key? key, required this.item}) : super(key: key);
+  MenuButton({super.key, required this.item});
   final Map item;
   @override
   State<MenuButton> createState() => _MenuButtonState();
@@ -13,8 +13,10 @@ class MenuButton extends StatefulWidget {
 class _MenuButtonState extends State<MenuButton> {
   @override
   Widget build(BuildContext context) {
+    final Map obj = widget.item;
+    print(obj);
     return IconButton(
-      padding: EdgeInsets.all(0),
+      padding: EdgeInsets.zero,
       alignment: Alignment.center,
       icon: Flex(
         spacing: 4,
@@ -22,18 +24,22 @@ class _MenuButtonState extends State<MenuButton> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SvgPicture.asset(widget.item['icon'], width: 34, height: 34),
+          SvgPicture.asset(obj['icon'], width: 34, height: 34),
           SizedBox(
             child: Text(
-              widget.item['label'],
-              style: TextStyle(fontSize: 12, color: blackColor, fontWeight: FontWeight.w500 ),
+              obj['label'],
+              style: TextStyle(
+                fontSize: 12,
+                color: blackColor,
+                fontWeight: FontWeight.w500,
+              ),
               overflow: TextOverflow.ellipsis,
             ),
           ),
         ],
       ),
       onPressed: () {
-        eventBus.emit(Events.NAVIGATE.name, widget.item['path']!);
+        eventBus.emit(Events.NAVIGATE.name, obj['path']!);
       },
     );
   }

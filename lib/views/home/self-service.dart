@@ -76,7 +76,7 @@ class SelfServicePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 142,
+      height: 146,
       margin: EdgeInsets.only(top: 10, bottom: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6),
@@ -84,6 +84,7 @@ class SelfServicePage extends StatelessWidget {
       ),
       child: GridView(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisSpacing: 10,
           crossAxisCount: 5, //横轴三个子widget
           // childAspectRatio: 1.0, //宽高比为1时，子widget
         ),
