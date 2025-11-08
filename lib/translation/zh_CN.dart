@@ -72,4 +72,5 @@ final Map<String, String> zh_CN =  {
   'businessCenter': "业务中心",
   'purchaseContract': "采购合同",
   'salesContract': "销售合同",
+  'loadingFailed': "加载失败",
 };

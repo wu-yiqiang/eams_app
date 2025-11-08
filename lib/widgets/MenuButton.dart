@@ -14,7 +14,6 @@ class _MenuButtonState extends State<MenuButton> {
   @override
   Widget build(BuildContext context) {
     final Map obj = widget.item;
-    print(obj);
     return IconButton(
       padding: EdgeInsets.zero,
       alignment: Alignment.center,

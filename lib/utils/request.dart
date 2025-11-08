@@ -71,7 +71,9 @@ class Request {
     //     };
     // };
     try {
-      EasyLoading.show();
+      EasyLoading.show(
+        maskType: EasyLoadingMaskType.black, // 设置背景不可点
+      );
       Response response = await _dio.request(
         path,
         data: data,
@@ -85,6 +87,7 @@ class Request {
             EasyLoading.showError(
               '${response.data['msg']}',
               duration: Duration(seconds: 2),
+              maskType: EasyLoadingMaskType.black, // 设置背景不可点
             );
             if (response.data['code'] == 1010002) {
               eventBus.emit(Events.NAVIGATE.name, routerMap['LOGIN']!);

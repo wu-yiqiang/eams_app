@@ -23,6 +23,7 @@ void main() async {
     EasyLoading.showError(
       messages.toString().tr,
       duration: Duration(seconds: 2),
+      maskType: EasyLoadingMaskType.black, // 设置背景不可点
     );
   });
   runApp(

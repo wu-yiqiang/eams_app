@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class Webvview extends StatefulWidget {
@@ -29,9 +31,20 @@ class WebvviewState extends State<Webvview> {
       ..setNavigationDelegate(
         NavigationDelegate(
           onProgress: (progress) => {print("加载进度$progress")},
-          onPageStarted: (String url) => {print("开始加载$url")},
-          onPageFinished: (String url) => {print("加载完成$url")},
-          onWebResourceError: (WebResourceError error) => {print("加载失败$error")},
+          onPageStarted: (String url) => {
+            EasyLoading.show(
+              maskType: EasyLoadingMaskType.black, // 设置背景不可点
+            ),
+          },
+          onPageFinished: (String url) => {EasyLoading.dismiss()},
+          onWebResourceError: (WebResourceError error) => {
+            EasyLoading.showError(
+              'loadingFailed'.tr,
+              maskType: EasyLoadingMaskType.black, // 设置背景不可点
+
+              duration: Duration(seconds: 2),
+            ),
+          },
           onNavigationRequest: (NavigationRequest request) {
             return NavigationDecision.navigate;
           },

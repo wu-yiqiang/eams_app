@@ -72,4 +72,5 @@ final Map<String, String> en_US = {
   'businessCenter': "Business Center",
   'purchaseContract': "Purchase Contract",
   'salesContract': "Sales Contract",
+  'loadingFailed': "Loading Failed",
 };
