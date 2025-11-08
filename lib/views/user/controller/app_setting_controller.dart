@@ -16,7 +16,7 @@ class AppSettingController extends GetxController {
       "path": routerMap['SETTING'],
     },
     {
-      "icon": 'setting',
+      "icon": 'privacy',
       "label": 'privacyPolicy',
       "path": routerMap['POLICY'],
     },
