@@ -1,3 +1,4 @@
+import 'package:eams/common/const.dart';
 import 'package:eams/views/home/hot-services.dart';
 import 'package:eams/views/home/notices.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +29,7 @@ class HomePage extends StatelessWidget {
         title: Text('home'.tr),
         leading: null,
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.white,
+        backgroundColor: greyColor,
       ),
       body: SafeArea(
         child: Container(
