@@ -19,7 +19,7 @@ class HotServicePage extends StatelessWidget {
     },
     {
       "path": routerMap['CHARGE'],
-      "label": "电桩情况",
+      "label": "电桩状态",
       "icon": "assets/svg/pile.svg",
     },
     {"path": routerMap['PARK'], "label": "车位查询", "icon": "assets/svg/park.svg"},

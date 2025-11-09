@@ -8,7 +8,7 @@ class ChargePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("电桩情况")),
+      appBar: AppBar(title: Text("电桩状态")),
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.all(10),
