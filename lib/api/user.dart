@@ -11,4 +11,7 @@ class UserApi {
   static logout() {
     return Request.post("/user/logout", null, null);
   }
+  static getAnswers() {
+    return Request.post("/user/", null, null);
+  }
 }

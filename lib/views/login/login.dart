@@ -11,6 +11,7 @@ import 'package:eams/views/tabs/controller/tab_controller.dart';
 class LoginPage extends StatelessWidget {
   LoginController loginController = Get.put(LoginController());
   final TabsController tabsController = Get.put(TabsController());
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(

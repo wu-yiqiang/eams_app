@@ -73,4 +73,6 @@ final Map<String, String> zh_CN =  {
   'purchaseContract': "采购合同",
   'salesContract': "销售合同",
   'loadingFailed': "加载失败",
+  'aiCustomerService': "智能客服",
+  'pleaseInput': "请输入文本",
 };

@@ -73,4 +73,6 @@ final Map<String, String> en_US = {
   'purchaseContract': "Purchase Contract",
   'salesContract': "Sales Contract",
   'loadingFailed': "Loading Failed",
+  'aiCustomerService': "Intelligent Customer Service",
+  'pleaseInput': "Please Enter Text",
 };

@@ -1,6 +1,7 @@
 import "package:eams/store/store.dart";
 import 'package:eams/utils/EventBus.dart';
 import "package:eams/views/portal/statistics/statistics.dart";
+import "package:eams/views/user/service.dart";
 import 'package:get/get.dart';
 import "package:eams/views/admin/assets/equipment/equipment.dart";
 import "package:eams/views/admin/assets/repair/repair.dart";
@@ -65,7 +66,8 @@ final routerMap = <String, String>{
   "PAYPAL": '/paypal',
   "COURSE": '/course',
   "REIMBURSEMENT": "/reimbursement",
-  "STATISTICS": "/statistics"
+  "STATISTICS": "/statistics",
+  "CUSTOMERSERVICE": '/customer-service'
 };
 
 abstract class AppPages {
@@ -194,5 +196,6 @@ abstract class AppPages {
       name: routerMap['STATISTICS']!,
       page: () => StatisticsPage(),
     ),
+    GetPage(name: routerMap['CUSTOMERSERVICE']!, page: () => CutomerServicePage()),
   ];
 }

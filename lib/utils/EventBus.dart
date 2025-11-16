@@ -3,7 +3,8 @@ typedef void EventCallback(arg);
 
 enum Events {
   NAVIGATE,
-  LOADINGERROR
+  LOADINGERROR,
+  SCROLLBOTTOM,
 }
 class EventBus {
   EventBus._internal();
