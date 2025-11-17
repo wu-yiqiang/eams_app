@@ -180,7 +180,7 @@ class AppSettingController extends GetxController {
         'text': '',
         'time': '',
       });
-      Future.delayed(Duration(milliseconds: 3000), () {
+      Future.delayed(Duration(milliseconds: 5000), () {
         final DateTime dateTime = DateTime.now();
         answerList.removeLast();
         answerList.add({
