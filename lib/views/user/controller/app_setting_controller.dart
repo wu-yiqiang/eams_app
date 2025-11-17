@@ -171,10 +171,18 @@ class AppSettingController extends GetxController {
   }
 
   void getAnswer(String question) async {
+    if (loading.value) return;
     loading.value = true;
     try {
+      answerList.add({
+        'avatar': 'assets/images/ai.png',
+        'type': ChatType.AI.index,
+        'text': '',
+        'time': '',
+      });
       Future.delayed(Duration(milliseconds: 3000), () {
         final DateTime dateTime = DateTime.now();
+        answerList.removeLast();
         answerList.add({
           'avatar': 'assets/images/ai.png',
           'type': ChatType.AI.index,

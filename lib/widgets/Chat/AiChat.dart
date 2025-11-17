@@ -1,7 +1,6 @@
 import 'package:eams/common/const.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class AiChat extends StatefulWidget {
   AiChat({super.key, required this.item});
@@ -44,22 +43,24 @@ class _AiChat extends State<AiChat> {
                   borderRadius: BorderRadius.circular(4),
                 ),
                 padding: EdgeInsets.all(10),
-                child: Text(
-                  widget.item['text'],
-                  style: TextStyle(
-                    color: whiteColor,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
+                child: widget.item['text'].length > 0
+                    ? Text(
+                        widget.item['text'],
+                        style: TextStyle(
+                          color: whiteColor,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      )
+                    : LoadingAnimationWidget.staggeredDotsWave(
+                        color: const Color.fromARGB(255, 0, 255, 0),
+                        size: 24,
+                      ),
               ),
             ],
           ),
         ),
-        Expanded(
-          flex: 2,
-          child: Container(child: null,),
-        )
+        Expanded(flex: 2, child: Container(child: null)),
       ],
     );
   }

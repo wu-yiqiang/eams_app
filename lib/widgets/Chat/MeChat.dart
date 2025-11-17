@@ -1,7 +1,5 @@
 import 'package:eams/common/const.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
 
 class MeChat extends StatefulWidget {
   MeChat({super.key, required this.item});
@@ -43,7 +41,7 @@ class _MeChat extends State<MeChat> {
                   widget.item['text'],
                   style: TextStyle(
                     color: whiteColor,
-                    fontSize: 14,
+                    fontSize: 16,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
